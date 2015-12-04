@@ -1,0 +1,5 @@
+interface: en1
+dns-resolution: yes
+port-display: on
+use-bytes: yes
+max-bandwidth: 16m
