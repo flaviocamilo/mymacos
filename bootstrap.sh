@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
 
+sudo -v
+
+while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
+
 MYOSX_HOME="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 cd "$MYOSX_HOME"
