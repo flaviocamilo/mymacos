@@ -16,4 +16,6 @@ rsync --exclude ".DS_Store" -avh --no-perms dotfiles/.[^.]* $HOME
 
 sed -i -e 's|MYOSX_HOME=|MYOSX_HOME='"'$MYOSX_HOME'"'|' $HOME/.bash_profile
 
-. $HOME/.bash_profile
+read -rsp $'-----------------------------------\n- This system is going to reboot! -\n---- Press any key to continue ----\n'
+
+sudo shutdown -r now &
