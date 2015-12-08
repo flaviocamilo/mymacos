@@ -20,7 +20,7 @@ function finder_show_desktop_icons() {
 
 function git_init() {
 	git init
-	echo "target .classpath .project .settings .svn .DS_Store" | tr " " "\n" > .gitignore
+	echo "target .classpath .project .settings .svn .DS_Store *.swp" | tr " " "\n" > .gitignore
 	git add .gitignore
 	git commit -m "Initialize the project"
 }

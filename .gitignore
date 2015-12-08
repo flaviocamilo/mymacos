@@ -4,3 +4,4 @@ target
 .settings
 .svn
 .DS_Store
+*.swp
