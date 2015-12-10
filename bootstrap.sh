@@ -18,6 +18,8 @@ git pull origin master
 
 rsync --exclude ".DS_Store" -avh --no-perms dotfiles/.[^.]* $HOME
 
+[ -d $HOME/.myprivateosx/dotfiles ] && rsync --exclude ".DS_Store" -avh --no-perms $HOME/.myprivateosx/dotfiles/.[^.]* $HOME
+
 sed -i -e 's|MYOSX_HOME=|MYOSX_HOME='"'$MYOSX_HOME'"'|' $HOME/.bash_profile
 
 read -rsp $'-----------------------------------\n- This system is going to reboot! -\n---- Press any key to continue ----\n\a'
