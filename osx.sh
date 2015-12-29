@@ -93,6 +93,7 @@ defaults write com.apple.LaunchServices LSQuarantine -bool false
 defaults write com.apple.Safari AutoOpenSafeDownloads -bool false
 defaults write com.apple.Safari HomePage -string "about:blank"
 defaults write com.apple.Safari IncludeDevelopMenu -bool true
+defaults write com.apple.Safari IncludeInternalDebugMenu -bool true
 defaults write com.apple.Safari ShowFavoritesBar -bool true
 defaults write com.apple.Safari WebKitDeveloperExtrasEnabledPreferenceKey -bool true
 defaults write com.apple.Safari WebKitTabToLinksPreferenceKey -bool true
