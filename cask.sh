@@ -40,7 +40,7 @@ brew cask install google-chrome
 #brew cask install movist
 brew cask install transmission
 
-brew cask install snes9x
+brew cask install openemu
 brew cask install steam
 
 brew cask cleanup
