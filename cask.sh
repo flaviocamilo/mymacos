@@ -21,6 +21,13 @@ brew cask install sequel-pro
 brew cask install vagrant
 brew cask install virtualbox
 
+brew cask install qlcolorcode
+brew cask install qlstephen
+brew cask install qlmarkdown
+brew cask install quicklook-json
+brew cask install qlprettypatch
+brew cask install qlimagesize
+
 #brew cask install freemind
 brew cask install kindle
 brew cask install things
