@@ -1,5 +1,15 @@
 #!/usr/bin/env bash
 
+function brew_cask_upgrade() {
+	for app in $(brew cask list -1); do
+		if [[ $(brew cask info $app | grep -i 'not installed') ]]; then
+			brew cask install $app
+			brew cask uninstall --force $app &>/dev/null
+			brew cask install $app &>/dev/null
+		fi
+	done
+}
+
 function finder_show_all_files() {
 	if [ $# -lt 1 ]; then
 		defaults write com.apple.finder AppleShowAllFiles true
