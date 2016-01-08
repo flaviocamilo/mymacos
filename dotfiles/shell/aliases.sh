@@ -10,4 +10,3 @@ alias c2d='brew cask update && brew_cask_upgrade && brew cask cleanup'
 alias g2d='gem update && gem cleanup'
 alias a2d='s2d && b2d && c2d && g2d'
 alias finder_fix_open_with_context_menu='/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister -kill -r -domain local -domain system -domain user && killall Finder'
-

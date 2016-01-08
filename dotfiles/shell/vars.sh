@@ -15,4 +15,3 @@ export PATH="/usr/local/opt/coreutils/libexec/gnubin:/usr/local/opt/gnu-sed/libe
 export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:/usr/local/opt/gnu-sed/libexec/gnuman:$MANPATH"
 
 [ -d $HOME/.myprivateosx ] && export MYPRIVATEOSX_HOME="$HOME/.myprivateosx"
-

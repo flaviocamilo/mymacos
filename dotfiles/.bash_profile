@@ -17,4 +17,3 @@ export MYOSX_HOME=
 [ ! -z "$MYPRIVATEOSX_HOME" ] && . "$MYOSX_HOME"/dotfiles/shell/private.sh
 
 umask 0022
-
