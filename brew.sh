@@ -55,6 +55,7 @@ brew install youtube-dl
 
 brew update
 
-brew upgrade --all
+brew upgrade
 
 brew cleanup
+
