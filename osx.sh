@@ -191,5 +191,3 @@ fi
 for app in "Activity Monitor" "Address Book" "Calendar" "Contacts" "cfprefsd" "Dock" "Finder" "iTunes" "Mail" "Messages" "Moom" "Safari" "SystemUIServer" "TextEdit" "Time Machine" "Transmission" "Twitter"; do
 	killall "${app}" &> /dev/null
 done
-
-echo "Done."
