@@ -46,7 +46,7 @@ brew install docker-compose
 brew install docker-swarm
 brew install vagrant-completion
 
-brew install maven
+brew install maven --ignore-dependencies
 brew install maven-completion
 brew install sonar-completion
 
