@@ -8,8 +8,6 @@ MYOSX_HOME="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 cd "$MYOSX_HOME"
 
-git pull origin master
-
 . osx.sh
 
 . brew.sh
