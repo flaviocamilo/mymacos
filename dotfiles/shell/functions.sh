@@ -12,18 +12,18 @@ function brew_cask_upgrade() {
 
 function finder_show_all_files() {
 	if [ $# -lt 1 ]; then
-		defaults write com.apple.finder AppleShowAllFiles true
+		defaults write com.apple.finder AppleShowAllFiles -bool true
 	else
-		defaults write com.apple.finder AppleShowAllFiles $1
+		defaults write com.apple.finder AppleShowAllFiles -bool $1
 	fi
 	killall Finder
 }
 
 function finder_show_desktop_icons() {
 	if [ $# -lt 1 ]; then
-		defaults write com.apple.finder CreateDesktop true
+		defaults write com.apple.finder CreateDesktop -bool true
 	else
-		defaults write com.apple.finder CreateDesktop $1
+		defaults write com.apple.finder CreateDesktop -bool $1
 	fi
 	killall Finder
 }
