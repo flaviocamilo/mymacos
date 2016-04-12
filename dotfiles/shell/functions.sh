@@ -35,6 +35,21 @@ function git_init() {
 	git commit -m "Initialize the project"
 }
 
+function get_application_bundle_id() {
+	if [ $# -eq 1 ]; then
+		for app in `find /Applications -maxdepth 4 -iname "$1.app"`; do
+			if [ -f "$app/Contents/Info.plist" ]; then
+				/usr/libexec/PlistBuddy -c 'Print CFBundleIdentifier' "$app/Contents/Info.plist"
+			fi
+		done
+		for app in `find "$HOME/Applications" -maxdepth 4 -iname "$1.app"`; do
+			if [ -f "$app/Contents/Info.plist" ]; then
+				/usr/libexec/PlistBuddy -c 'Print CFBundleIdentifier' "$app/Contents/Info.plist"
+			fi
+		done
+	fi
+}
+
 #function home_fix_permissions() {
 #	sudo chown -R $(whoami):staff $HOME
 #	find $HOME -type d -print0 | xargs -0 chmod 770
