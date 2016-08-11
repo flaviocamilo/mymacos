@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-function brew_cask_upgrade() {
+brew_cask_upgrade() {
 	for app in $(brew cask list -1); do
 		if [[ $(brew cask info $app | grep -i 'not installed') ]]; then
 			brew cask install $app
@@ -10,7 +10,7 @@ function brew_cask_upgrade() {
 	done
 }
 
-function finder_show_all_files() {
+finder_show_all_files() {
 	if [ $# -lt 1 ]; then
 		defaults write com.apple.finder AppleShowAllFiles -bool true
 	else
@@ -19,7 +19,7 @@ function finder_show_all_files() {
 	killall Finder
 }
 
-function finder_show_desktop_icons() {
+finder_show_desktop_icons() {
 	if [ $# -lt 1 ]; then
 		defaults write com.apple.finder CreateDesktop -bool true
 	else
@@ -28,14 +28,14 @@ function finder_show_desktop_icons() {
 	killall Finder
 }
 
-function git_init() {
+git_init() {
 	git init
 	echo "target .classpath .project .settings .svn .DS_Store *.swp" | tr " " "\n" > .gitignore
 	git add .gitignore
 	git commit -m "Initialize the project"
 }
 
-function get_application_bundle_id() {
+get_application_bundle_id() {
 	if [ $# -eq 1 ]; then
 		for app in `find /Applications -maxdepth 4 -iname "$1.app"`; do
 			if [ -f "$app/Contents/Info.plist" ]; then
@@ -50,7 +50,7 @@ function get_application_bundle_id() {
 	fi
 }
 
-#function home_fix_permissions() {
+#home_fix_permissions() {
 #	sudo chown -R $(whoami):staff $HOME
 #	find $HOME -type d -print0 | xargs -0 chmod 770
 #	find $HOME -type f -print0 | xargs -0 chmod 660
