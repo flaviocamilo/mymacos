@@ -95,11 +95,11 @@
 	<key>ANSICyanColor</key>
 	<data>
 	YnBsaXN0MDDUAQIDBAUGFRZYJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3AS
-	AAGGoKMHCA9VJG51bGzTCQoLDA0OVU5TUkdCXE5TQ29sb3JTcGFjZVYkY2xhc3NPECYw
-	LjUwNDEwNjQyMDMgMC43ODQ1MDEzNTMgMC42ODA1NzcwMDg1ABABgALSEBESE1okY2xh
-	c3NuYW1lWCRjbGFzc2VzV05TQ29sb3KiEhRYTlNPYmplY3RfEA9OU0tleWVkQXJjaGl2
-	ZXLRFxhUcm9vdIABCBEaIy0yNztBSE5bYouNj5SfqLCzvM7R1gAAAAAAAAEBAAAAAAAA
-	ABkAAAAAAAAAAAAAAAAAAADY
+	AAGGoKMHCA9VJG51bGzTCQoLDA0OVU5TUkdCXE5TQ29sb3JTcGFjZVYkY2xhc3NPECcw
+	LjI3NDUwOTgwMzkgMC42NjY2NjY2NjY3IDAuNDcwNTg4MjM1MwAQAYAC0hAREhNaJGNs
+	YXNzbmFtZVgkY2xhc3Nlc1dOU0NvbG9yohIUWE5TT2JqZWN0XxAPTlNLZXllZEFyY2hp
+	dmVy0RcYVHJvb3SAAQgRGiMtMjc7QUhOW2KMjpCVoKmxtL3P0tcAAAAAAAABAQAAAAAA
+	AAAZAAAAAAAAAAAAAAAAAAAA2Q==
 	</data>
 	<key>ANSIGreenColor</key>
 	<data>
@@ -131,11 +131,11 @@
 	<key>ANSIWhiteColor</key>
 	<data>
 	YnBsaXN0MDDUAQIDBAUGFRZYJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3AS
-	AAGGoKMHCA9VJG51bGzTCQoLDA0OVU5TUkdCXE5TQ29sb3JTcGFjZVYkY2xhc3NPECYw
-	Ljg5NDIzNTQ2NjggMC41NDg0NDUyMTA3IDAuMzMyODU3MzI1ABABgALSEBESE1okY2xh
-	c3NuYW1lWCRjbGFzc2VzV05TQ29sb3KiEhRYTlNPYmplY3RfEA9OU0tleWVkQXJjaGl2
-	ZXLRFxhUcm9vdIABCBEaIy0yNztBSE5bYouNj5SfqLCzvM7R1gAAAAAAAAEBAAAAAAAA
-	ABkAAAAAAAAAAAAAAAAAAADY
+	AAGGoKMHCA9VJG51bGzTCQoLDA0OVU5TUkdCXE5TQ29sb3JTcGFjZVYkY2xhc3NPECcw
+	Ljk2MDc4NDMxMzcgMC45NjA3ODQzMTM3IDAuOTYwNzg0MzEzNwAQAYAC0hAREhNaJGNs
+	YXNzbmFtZVgkY2xhc3Nlc1dOU0NvbG9yohIUWE5TT2JqZWN0XxAPTlNLZXllZEFyY2hp
+	dmVy0RcYVHJvb3SAAQgRGiMtMjc7QUhOW2KMjpCVoKmxtL3P0tcAAAAAAAABAQAAAAAA
+	AAAZAAAAAAAAAAAAAAAAAAAA2Q==
 	</data>
 	<key>ANSIYellowColor</key>
 	<data>
@@ -197,15 +197,35 @@
 	dmVy0RcYVHJvb3SAAQgRGiMtMjc7QUhOW2KMjpCVoKmxtL3P0tcAAAAAAAABAQAAAAAA
 	AAAZAAAAAAAAAAAAAAAAAAAA2Q==
 	</data>
+	<key>ShouldRestoreContent</key>
+	<true/>
 	<key>ShowActiveProcessArgumentsInTabTitle</key>
+	<false/>
+	<key>ShowActiveProcessArgumentsInTitle</key>
 	<false/>
 	<key>ShowActiveProcessInTabTitle</key>
 	<false/>
+	<key>ShowActiveProcessInTitle</key>
+	<false/>
+	<key>ShowActivityIndicatorInTab</key>
+	<true/>
+	<key>ShowCommandKeyInTitle</key>
+	<false/>
 	<key>ShowDimensionsInTitle</key>
 	<false/>
+	<key>ShowRepresentedURLInTabTitle</key>
+	<true/>
+	<key>ShowRepresentedURLInTitle</key>
+	<true/>
 	<key>ShowRepresentedURLPathInTabTitle</key>
 	<false/>
 	<key>ShowRepresentedURLPathInTitle</key>
+	<true/>
+	<key>ShowShellCommandInTitle</key>
+	<false/>
+	<key>ShowTTYNameInTitle</key>
+	<false/>
+	<key>ShowTerminalInDockIcon</key>
 	<true/>
 	<key>ShowWindowSettingsNameInTitle</key>
 	<false/>
@@ -227,7 +247,7 @@
 	AAAZAAAAAAAAAAAAAAAAAAAA2Q==
 	</data>
 	<key>UseBoldFonts</key>
-	<false/>
+	<true/>
 	<key>UseBrightBold</key>
 	<false/>
 	<key>WindowTitle</key>
