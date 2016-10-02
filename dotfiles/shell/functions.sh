@@ -1,9 +1,11 @@
 #!/usr/bin/env bash
 
 brew_cask_upgrade() {
-	for app in $(brew cask list -1); do
-		if [[ $(brew cask info $app | grep -i 'not installed') ]]; then
-			brew cask install $app
+	for app in $(brew cask list -1 | sort); do
+		latest_version=$(brew cask info $app | grep "$app: " | sed -e "s/$app: //g")
+		installed_version=$(brew cask info $app | grep '/usr/local/Caskroom/' | tail -n 1 | sed -e "s:/usr/local/Caskroom/$app/::g" | sed -e 's: [[:graph:][:space:]]*::')
+		if [[ $latest_version != $installed_version ]]; then
+			echo "Updating $app from version $installed_version to version $latest_version..."
 			brew cask uninstall --force $app &>/dev/null
 			brew cask install $app &>/dev/null
 		fi
