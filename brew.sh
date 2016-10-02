@@ -12,13 +12,16 @@ brew tap homebrew/versions
 
 brew install go
 brew install node --with-openssl
+brew install perl
+brew install python
+brew linkapps python
 brew install python3
 brew linkapps python3
 brew install ruby
 brew install ruby-completion
 brew install gem-completion
-brew install swiftlint
 
+brew install apm-bash-completion
 brew install aria2
 brew install asciinema
 brew install bash
@@ -30,20 +33,24 @@ brew install checkbashisms
 brew install coreutils
 brew install cpulimit
 brew install curl --with-libssh2 --with-openssl
+brew install diffutils
 brew install doctl
 brew install duff
 brew install duti
 brew install fdupes
 brew install findutils --with-default-names
+brew install flow
 brew install gnu-sed --with-default-names
 brew install grep --with-default-names
 brew install highlight
 brew install htop-osx
 brew install httpie
 brew install iftop
+brew install imagemagick
 brew install jbake
 brew install moreutils
 brew install nmap
+brew install openssl
 brew install p7zip
 brew install postgresql
 brew install pow
@@ -58,14 +65,20 @@ brew install psqlodbc
 brew install pstree
 brew install screen
 brew install shellcheck
+brew install sourcekitten
+brew install sqlite
 brew install ssh-copy-id
+brew install swiftlint
 brew install tidy-html5
 brew install tomcat
 brew install tree
+brew install unixodbc
 brew install unrar
 brew install vim --override-system-vi --with-python3
+brew install watchman
 brew install wget
 brew install wiki
+brew install xz
 brew install z
 
 brew install git --with-brewed-curl --with-brewed-openssl
@@ -85,10 +98,14 @@ brew install maven-completion
 brew install sonar-completion
 
 brew install cowsay
+brew install epic5
 brew install gifify
+brew install irssi
 brew install libvo-aacenc
 brew install mpv --with-bundle --with-libdvdnav --with-libdvdread
 brew linkapps mpv
+brew install x264
+brew install xvid
 brew install youtube-dl
 
 brew update

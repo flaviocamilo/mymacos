@@ -21,8 +21,9 @@ brew cask install firefox
 brew cask install freemind
 brew cask install github-desktop
 brew cask install gitkraken
-brew cask install gpgtools
-#brew cask install hopper-disassembler
+brew cask install google-chrome-dev
+# brew cask install gpgtools
+# brew cask install hopper-disassembler
 brew cask install kaleidoscope
 brew cask install kindle
 brew cask install macdown
@@ -36,12 +37,12 @@ sudo -S -v <<< "${PASSWORD}" 2> /dev/null
 brew cask install slack
 brew cask install sqlitebrowser
 brew cask install vagrant
-#brew cask install virtualbox
+# brew cask install virtualbox
 brew cask install whatsapp
 
 brew cask install adguard
 brew cask install bettertouchtool
-#brew cask install diskmaker-x
+# brew cask install diskmaker-x
 brew cask install keka
 brew cask install macs-fan-control
 brew cask install qlcolorcode
@@ -51,7 +52,7 @@ brew cask install quicklook-json
 brew cask install qlprettypatch
 brew cask install qlimagesize
 brew cask install scroll-reverser
-#brew cask install unetbootin
+# brew cask install unetbootin
 
 brew cask install handbrake
 brew cask install transmission
