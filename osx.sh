@@ -3,13 +3,13 @@
 ### GENERAL
 chflags nohidden $HOME/Library
 sudo systemsetup -settimezone "America/Sao_Paulo" > /dev/null
-sudo scutil --set LocalHostName "$(hostname)"
-sudo scutil --set ComputerName "Flávio's MacBook Pro"
-sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server ServerDescription -string "Flávio's MacBook Pro"
-sudo defaults write /Library/Preferences/com.apple.loginwindow AdminHostInfo HostName
-sudo defaults write /Library/Preferences/com.apple.windowserver DisplayResolutionEnabled -bool true
+#sudo scutil --set LocalHostName "$(hostname)"
+#sudo scutil --set ComputerName "Flávio's MacBook Pro"
+#sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server ServerDescription -string "Flávio's MacBook Pro"
+#sudo defaults write /Library/Preferences/com.apple.loginwindow AdminHostInfo HostName
+#sudo defaults write /Library/Preferences/com.apple.windowserver DisplayResolutionEnabled -bool true
 defaults -currentHost write com.apple.ImageCapture disableHotPlug -bool true
-defaults write NSGlobalDomain AppleAquaColorVariant -int 6
+#defaults write NSGlobalDomain AppleAquaColorVariant -int 6
 defaults write NSGlobalDomain AppleFontSmoothing -int 2
 defaults write NSGlobalDomain AppleShowScrollBars -string "Automatic"
 defaults write NSGlobalDomain NSQuitAlwaysKeepsWindows -bool true
@@ -24,15 +24,15 @@ defaults write com.apple.frameworks.diskimages skip-verify-remote -bool true
 defaults write com.apple.launchservices LSQuarantine -bool false
 defaults write com.apple.screencapture location -string "${HOME}/Pictures/Screenshots"
 defaults write com.apple.screencapture type -string "png"
-defaults write com.apple.systemuiserver menuExtras -array "/System/Library/CoreServices/Menu Extras/TimeMachine.menu" "/System/Library/CoreServices/Menu Extras/AirPort.menu" "/System/Library/CoreServices/Menu Extras/Battery.menu" "/System/Library/CoreServices/Menu Extras/Clock.menu"
+#defaults write com.apple.systemuiserver menuExtras -array "/System/Library/CoreServices/Menu Extras/TimeMachine.menu" "/System/Library/CoreServices/Menu Extras/AirPort.menu" "/System/Library/CoreServices/Menu Extras/Battery.menu" "/System/Library/CoreServices/Menu Extras/Clock.menu"
 
 ### DESKTOP & SCREEN SAVER
 defaults write com.apple.dock wvous-br-corner -int 6
 defaults write com.apple.dock wvous-br-modifier -int 0
 defaults write com.apple.dock wvous-tl-corner -int 10
 defaults write com.apple.dock wvous-tl-modifier -int 131072
-defaults write com.apple.screensaver askForPassword -int 1
-defaults write com.apple.screensaver askForPasswordDelay -int 0
+#defaults write com.apple.screensaver askForPassword -int 1
+#defaults write com.apple.screensaver askForPasswordDelay -int 0
 
 ### DOCK
 defaults write com.apple.dock enable-spring-load-actions-on-all-items -bool true
@@ -41,7 +41,7 @@ defaults write com.apple.dock magnification -bool true
 defaults write com.apple.dock mineffect -string "scale"
 defaults write com.apple.dock minimize-to-application -bool true
 defaults write com.apple.dock mouse-over-hilite-stack -bool true
-defaults write com.apple.dock persistent-apps -array
+#defaults write com.apple.dock persistent-apps -array
 defaults write com.apple.dock showhidden -bool true
 defaults write com.apple.dock tilesize -int 40
 
@@ -58,9 +58,9 @@ defaults write NSGlobalDomain AppleMeasurementUnits -string "Centimeters"
 defaults write NSGlobalDomain AppleMetricUnits -bool true
 
 ### KEYBOARD
-defaults write NSGlobalDomain AppleKeyboardUIMode -int 2
-defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
-defaults write NSGlobalDomain KeyRepeat -float 0.5
+#defaults write NSGlobalDomain AppleKeyboardUIMode -int 2
+#defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
+#defaults write NSGlobalDomain KeyRepeat -float 0.5
 defaults write NSGlobalDomain NSAutomaticDashSubstitutionEnabled -bool false
 defaults write NSGlobalDomain NSAutomaticQuoteSubstitutionEnabled -bool false
 defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
@@ -68,54 +68,54 @@ defaults write NSGlobalDomain com.apple.keyboard.fnState -bool true
 
 ### TRACKPAD
 defaults write NSGlobalDomain AppleActionOnDoubleClick -string "Maximize"
-defaults write NSGlobalDomain AppleEnableSwipeNavigateWithScrolls -bool true
-defaults write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
-defaults -currentHost write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
-defaults write NSGlobalDomain com.apple.trackpad.forceClick -bool true
-defaults write com.apple.AppleMultitouchTrackpad Clicking -bool true
-defaults write com.apple.AppleMultitouchTrackpad TrackpadFiveFingerPinchGesture -int 2
-defaults write com.apple.AppleMultitouchTrackpad TrackpadFourFingerHorizSwipeGesture -int 2
-defaults write com.apple.AppleMultitouchTrackpad TrackpadFourFingerPinchGesture -int 2
-defaults write com.apple.AppleMultitouchTrackpad TrackpadFourFingerVertSwipeGesture -int 2
-defaults write com.apple.AppleMultitouchTrackpad TrackpadHorizScroll -bool true
-defaults write com.apple.AppleMultitouchTrackpad TrackpadRightClick -int 1
-defaults write com.apple.AppleMultitouchTrackpad TrackpadThreeFingerDrag -bool true
-defaults write com.apple.AppleMultitouchTrackpad TrackpadThreeFingerHorizSwipeGesture -int 0
-defaults write com.apple.AppleMultitouchTrackpad TrackpadThreeFingerTapGesture -int 2
-defaults write com.apple.AppleMultitouchTrackpad TrackpadThreeFingerVertSwipeGesture -int 0
-defaults write com.apple.dock showAppExposeGestureEnabled -bool true
-defaults write com.apple.dock showLaunchpadGestureEnabled -bool true
-defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool true
-defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadFiveFingerPinchGesture -int 2
-defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadFourFingerHorizSwipeGesture -int 2
-defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadFourFingerPinchGesture -int 2
-defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadFourFingerVertSwipeGesture -int 2
-defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadHorizScroll -bool true
-defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadRightClick -int 1
-defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadThreeFingerDrag -bool true
-defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadThreeFingerHorizSwipeGesture -int 0
-defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadThreeFingerTapGesture -int 2
-defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadThreeFingerVertSwipeGesture -int 0
+#defaults write NSGlobalDomain AppleEnableSwipeNavigateWithScrolls -bool true
+#defaults write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
+#defaults -currentHost write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
+#defaults write NSGlobalDomain com.apple.trackpad.forceClick -bool true
+#defaults write com.apple.AppleMultitouchTrackpad Clicking -bool true
+#defaults write com.apple.AppleMultitouchTrackpad TrackpadFiveFingerPinchGesture -int 2
+#defaults write com.apple.AppleMultitouchTrackpad TrackpadFourFingerHorizSwipeGesture -int 2
+#defaults write com.apple.AppleMultitouchTrackpad TrackpadFourFingerPinchGesture -int 2
+#defaults write com.apple.AppleMultitouchTrackpad TrackpadFourFingerVertSwipeGesture -int 2
+#defaults write com.apple.AppleMultitouchTrackpad TrackpadHorizScroll -bool true
+#defaults write com.apple.AppleMultitouchTrackpad TrackpadRightClick -int 1
+#defaults write com.apple.AppleMultitouchTrackpad TrackpadThreeFingerDrag -bool true
+#defaults write com.apple.AppleMultitouchTrackpad TrackpadThreeFingerHorizSwipeGesture -int 0
+#defaults write com.apple.AppleMultitouchTrackpad TrackpadThreeFingerTapGesture -int 2
+#defaults write com.apple.AppleMultitouchTrackpad TrackpadThreeFingerVertSwipeGesture -int 0
+#defaults write com.apple.dock showAppExposeGestureEnabled -bool true
+#defaults write com.apple.dock showLaunchpadGestureEnabled -bool true
+#defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool true
+#defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadFiveFingerPinchGesture -int 2
+#defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadFourFingerHorizSwipeGesture -int 2
+#defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadFourFingerPinchGesture -int 2
+#defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadFourFingerVertSwipeGesture -int 2
+#defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadHorizScroll -bool true
+#defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadRightClick -int 1
+#defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadThreeFingerDrag -bool true
+#defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadThreeFingerHorizSwipeGesture -int 0
+#defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadThreeFingerTapGesture -int 2
+#defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadThreeFingerVertSwipeGesture -int 0
 
 ### SOUND
-defaults write com.apple.systemsound com.apple.sound.beep.flash -bool true
-defaults write com.apple.systemsound com.apple.sound.uiaudio.enabled -bool true
+#defaults write com.apple.systemsound com.apple.sound.beep.flash -bool true
+#defaults write com.apple.systemsound com.apple.sound.uiaudio.enabled -bool true
 
 ### APP STORE
-defaults write com.apple.SoftwareUpdate ScheduleFrequency -int 1
+#defaults write com.apple.SoftwareUpdate ScheduleFrequency -int 1
 
 ### DATE & TIME
-defaults write com.apple.menuextra.clock DateFormat -string "EEE MMM d  HH:mm:ss"
+#defaults write com.apple.menuextra.clock DateFormat -string "EEE MMM d  HH:mm:ss"
 defaults write com.apple.menuextra.clock FlashDateSeparators -bool true
-defaults write com.apple.menuextra.clock IsAnalog -bool false
+#defaults write com.apple.menuextra.clock IsAnalog -bool false
 
 ### TIME MACHINE
-defaults write com.apple.timemachine DoNotOfferNewDisksForBackup -bool true
+#defaults write com.apple.timemachine DoNotOfferNewDisksForBackup -bool true
 
 ### ACCESSIBILITY
-defaults write com.apple.universalaccess closeViewScrollWheelToggle -bool true
-defaults write com.apple.universalaccess closeViewZoomFollowsFocus -bool true
-defaults write com.apple.universalaccess flashScreen -bool true
+#defaults write com.apple.universalaccess closeViewScrollWheelToggle -bool true
+#defaults write com.apple.universalaccess closeViewZoomFollowsFocus -bool true
+#defaults write com.apple.universalaccess flashScreen -bool true
 
 ### CONTACTS
 defaults write NSGlobalDomain NSPersonNameDefaultShortNameEnabled -bool true
@@ -144,14 +144,14 @@ defaults write com.apple.finder ShowRemovableMediaOnDesktop -bool false
 defaults write com.apple.finder ShowPathbar -bool true
 defaults write com.apple.finder ShowStatusBar -bool true
 defaults write com.apple.finder ShowTabView -bool true
-defaults write com.apple.finder SidebarWidth -int 165
+defaults write com.apple.finder SidebarWidth -int 195
 defaults write com.apple.finder WarnOnEmptyTrash -bool false
 
 ### HELPVIEWER
 defaults write com.apple.helpviewer DevMode -bool true
 
 ### ITUNES
-defaults write com.apple.iTunes dontAutomaticallySyncIPods -bool true
+#defaults write com.apple.iTunes dontAutomaticallySyncIPods -bool true
 
 ### MAIL
 defaults write com.apple.mail AddressesIncludeNameOnPasteboard -bool false
@@ -210,6 +210,7 @@ end tell
 EOD
 
 ### TRANSMISSION
+defaults write org.m0k.transmission DownloadFolder -string "${HOME}/Downloads/Torrents/Complete"
 defaults write org.m0k.transmission UseIncompleteDownloadFolder -bool true
 defaults write org.m0k.transmission IncompleteDownloadFolder -string "${HOME}/Downloads/Torrents/Incomplete"
 defaults write org.m0k.transmission WarningDonate -bool false
