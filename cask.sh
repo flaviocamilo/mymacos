@@ -1,8 +1,5 @@
 #!/usr/bin/env bash
 
-sudo -S mkdir -p /opt/homebrew-cask/Caskroom <<< "${PASSWORD}" 2> /dev/null
-sudo -S chown -R ${USER}:staff /opt/homebrew-cask <<< "${PASSWORD}" 2> /dev/null
-
 brew tap caskroom/cask
 brew install brew-cask-completion
 brew tap caskroom/fonts
@@ -10,7 +7,7 @@ brew tap caskroom/fonts
 sudo -S -v <<< "${PASSWORD}" 2> /dev/null
 brew cask install java
 brew cask install eclipse-installer
-brew cask install android-studio
+# brew cask install android-studio
 
 brew cask install atom
 brew cask install cheatsheet
