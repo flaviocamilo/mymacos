@@ -1,0 +1,179 @@
+"*":
+  core:
+    customFileTypes:
+      "source.ini": [
+        ".buckconfig"
+        ".flowconfig"
+        ".hgrc"
+      ]
+      "source.json": [
+        ".arcconfig"
+        "BUCK.autodeps"
+      ]
+      "source.python": [
+        "BUCK"
+      ]
+    disabledPackages: [
+      "tree-view"
+      "metrics"
+      "autosave"
+      "linter"
+      "script"
+    ]
+    openEmptyEditorOnStart: false
+    projectHome: "/Users/flaviocamilo/Developer"
+    themes: [
+      "one-dark-ui"
+      "base16-tomorrow-dark-theme"
+    ]
+  editor:
+    fontFamily: "CamingoCode"
+    fontSize: 12
+    lineHeight: 1.6
+    preferredLineLength: 120
+    showInvisibles: true
+    tabLength: 4
+    tabType: "hard"
+  emmet:
+    extensionsPath: "~/.emmet"
+  "exception-reporting":
+    userId: "bd688ea4-467f-589c-7e5e-789826825e86"
+  "file-icons": {}
+  "find-and-replace":
+    openProjectFindResultsInRightPane: true
+  "language-babel":
+    autoIndentJSX: true
+    transpileOnSave: true
+  linter:
+    showErrorPanel: false
+  minimap:
+    plugins:
+      bookmarks: true
+      bookmarksDecorationsZIndex: 0
+      cursorline: true
+      cursorlineDecorationsZIndex: 0
+      "find-and-replace": true
+      "find-and-replaceDecorationsZIndex": 0
+      "git-diff": true
+      "git-diffDecorationsZIndex": 0
+      "highlight-selected": true
+      "highlight-selectedDecorationsZIndex": 0
+      linter: true
+      linterDecorationsZIndex: 0
+  nuclide:
+    "nuclide-distraction-free-mode":
+      hideStatusBar: true
+      hideToolBar: true
+    "nuclide-file-tree":
+      revealFileOnSwitch: true
+    "nuclide-home":
+      showHome: false
+    use:
+      "nuclide-fuzzy-filename-provider": false
+      "nuclide-open-filenames-provider": false
+      "nuclide-quick-open": false
+      "nuclide-recent-files-provider": false
+  "one-dark-ui":
+    layoutMode: "Compact"
+    tabSizing: "Even"
+  tabs:
+    addNewTabsAtEnd: true
+    enableVcsColoring: true
+  "tool-bar":
+    iconSize: "16px"
+    position: "Left"
+  welcome:
+    showOnStartup: false
+  whitespace: {}
+".ansi.text":
+  editor:
+    preferredLineLength: 120
+    tabLength: 4
+".babel.regexp.source":
+  editor:
+    preferredLineLength: 120
+    tabLength: 4
+".basic.html.text":
+  editor:
+    preferredLineLength: 120
+".css.source":
+  editor:
+    preferredLineLength: 120
+".erb.html.text":
+  editor:
+    preferredLineLength: 120
+".git-commit.text":
+  editor:
+    preferredLineLength: 120
+".git-config.source":
+  editor:
+    preferredLineLength: 120
+".git-rebase.text":
+  editor:
+    preferredLineLength: 120
+".hack.html.text":
+  editor:
+    preferredLineLength: 120
+    tabLength: 4
+".hackfragment.source":
+  editor:
+    preferredLineLength: 120
+    tabLength: 4
+".hg-commit.text":
+  editor:
+    preferredLineLength: 120
+    tabLength: 4
+".html.ruby.text":
+  editor:
+    preferredLineLength: 120
+".ini.source":
+  editor:
+    preferredLineLength: 120
+    tabLength: 4
+".js.jsx.source":
+  editor:
+    preferredLineLength: 120
+    tabLength: 4
+".js.rails.source source.jquery.js":
+  editor:
+    preferredLineLength: 120
+".js.regexp.replacement.source":
+  editor:
+    preferredLineLength: 120
+".js.regexp.source":
+  editor:
+    preferredLineLength: 120
+".js.source":
+  editor:
+    preferredLineLength: 120
+".json.source":
+  editor:
+    preferredLineLength: 120
+".rails.rjs.ruby.source":
+  editor:
+    preferredLineLength: 120
+".rails.ruby.source":
+  editor:
+    preferredLineLength: 120
+".ruby.source":
+  editor:
+    preferredLineLength: 120
+".ruby.source.sql":
+  editor:
+    preferredLineLength: 120
+".shell-session.text":
+  editor:
+    preferredLineLength: 120
+".shell.source":
+  editor:
+    preferredLineLength: 120
+".source.swift":
+  editor:
+    preferredLineLength: 120
+".source.yaml":
+  editor:
+    preferredLineLength: 120
+    tabLength: 4
+".text.todo":
+  editor:
+    preferredLineLength: 120

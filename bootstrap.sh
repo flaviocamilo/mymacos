@@ -18,6 +18,8 @@ cd "$MYOSX_HOME" || exit
 
 . cask.sh
 
+. atom.sh
+
 for ext in {conf,css,html,js,json,md,php,plist,py,rb,sh,txt,xhtml,xml,yml}; do duti -s com.github.atom "${ext}" all; done
 for ext in {avi,flv,mkv,mov,mp4,mpeg,mpg,webm,wmv}; do duti -s io.mpv "${ext}" all; done
 for ext in {7z,bz2,gz,rar,tar,zip}; do duti -s com.aone.keka "${ext}" all; done
