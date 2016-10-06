@@ -67,7 +67,6 @@ defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
 defaults write NSGlobalDomain com.apple.keyboard.fnState -bool true
 
 ### TRACKPAD
-defaults write NSGlobalDomain AppleActionOnDoubleClick -string "Maximize"
 #defaults write NSGlobalDomain AppleEnableSwipeNavigateWithScrolls -bool true
 #defaults write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
 #defaults -currentHost write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
