@@ -4,7 +4,7 @@
 chflags nohidden $HOME/Library
 sudo systemsetup -settimezone "America/Sao_Paulo" > /dev/null
 sudo scutil --set LocalHostName "tocsin"
-#sudo scutil --set ComputerName "Flávio's MacBook Pro"
+sudo scutil --set ComputerName "Flávio's MacBook Pro"
 #sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server ServerDescription -string "Flávio's MacBook Pro"
 #sudo defaults write /Library/Preferences/com.apple.loginwindow AdminHostInfo HostName
 #sudo defaults write /Library/Preferences/com.apple.windowserver DisplayResolutionEnabled -bool true
