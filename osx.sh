@@ -104,7 +104,7 @@ defaults write NSGlobalDomain com.apple.keyboard.fnState -bool true
 #defaults write com.apple.SoftwareUpdate ScheduleFrequency -int 1
 
 ### DATE & TIME
-#defaults write com.apple.menuextra.clock DateFormat -string "EEE MMM d  HH:mm:ss"
+defaults write com.apple.menuextra.clock DateFormat -string "EEE MMM d  HH:mm:ss"
 defaults write com.apple.menuextra.clock FlashDateSeparators -bool true
 #defaults write com.apple.menuextra.clock IsAnalog -bool false
 
