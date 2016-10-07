@@ -8,6 +8,7 @@ export LC_ALL='en_US.UTF-8'
 export EDITOR='/usr/local/bin/atom --wait'
 export GIT_EDITOR='/usr/local/bin/atom --wait'
 
+export HOMEBREW_NO_ANALYTICS=1
 HOMEBREW_PREFIX=$(brew --prefix)
 export HOMEBREW_PREFIX
 HOMEBREW_REPOSITORY=$(brew --repository)
