@@ -2,6 +2,7 @@
 
 brew tap caskroom/cask
 brew install brew-cask-completion
+brew tap caskroom/versions
 brew tap caskroom/fonts
 
 sudo -S -v <<< "${PASSWORD}" 2> /dev/null
@@ -33,6 +34,7 @@ brew cask install sequel-pro
 sudo -S -v <<< "${PASSWORD}" 2> /dev/null
 brew cask install slack
 brew cask install sqlitebrowser
+sudo -S -v <<< "${PASSWORD}" 2> /dev/null
 brew cask install vagrant
 # brew cask install virtualbox
 brew cask install whatsapp
