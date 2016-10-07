@@ -20,7 +20,7 @@ cd "$MYOSX_HOME" || exit
 
 . atom.sh
 
-for ext in {conf,css,html,js,json,md,php,plist,py,rb,sh,txt,xhtml,xml,yml}; do duti -s com.github.atom "${ext}" all; done
+for ext in {conf,css,js,json,md,php,plist,py,rb,sh,txt,xhtml,xml,yml}; do duti -s com.github.atom "${ext}" all; done
 for ext in {avi,flv,mkv,mov,mp4,mpeg,mpg,webm,wmv}; do duti -s io.mpv "${ext}" all; done
 for ext in {7z,bz2,gz,rar,tar,zip}; do duti -s com.aone.keka "${ext}" all; done
 
@@ -30,7 +30,7 @@ rsync --exclude ".DS_Store" -avh --no-perms dotfiles/.[^.]* $HOME
 
 sed -i -e 's|MYOSX_HOME=|MYOSX_HOME='"'$MYOSX_HOME'"'|' $HOME/.bash_profile
 
-read -n1 -sp $'\n-----------------------------------\n- This system is going to reboot! -\n---- Press any key to continue ----\n\n\a'
+read -n1 -sp $'\n-----------------------------------\n  THIS SYSTEM IS GOING TO REBOOT!  \n---- Press any key to continue ----\n\n\a'
 
 killall caffeinate
 
