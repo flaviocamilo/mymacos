@@ -14,3 +14,5 @@ shopt -s autocd
 
 # Recursive globbing: `echo **/*.txt`
 shopt -s globstar
+
+. $HOMEBREW_PREFIX/etc/profile.d/z.sh
