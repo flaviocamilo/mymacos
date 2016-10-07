@@ -2,6 +2,7 @@
 
 alias ll='ls -hkl --color --group-directories-first --time-style="+%Y•%m•%d %T"'
 alias la='ll -a'
+alias diff='diff --color'
 alias grep='grep --color'
 alias egrep='egrep --color'
 alias x2d='sudo softwareupdate -i -a'
