@@ -44,11 +44,13 @@ get_application_bundle_id() {
 				/usr/libexec/PlistBuddy -c 'Print CFBundleIdentifier' "$app/Contents/Info.plist"
 			fi
 		done
-		for app in `find "$HOME/Applications" -maxdepth 4 -iname "$1.app"`; do
-			if [ -f "$app/Contents/Info.plist" ]; then
-				/usr/libexec/PlistBuddy -c 'Print CFBundleIdentifier' "$app/Contents/Info.plist"
-			fi
-		done
+		if [ -d $HOME/Applications ]; then
+			for app in `find "$HOME/Applications" -maxdepth 4 -iname "$1.app"`; do
+				if [ -f "$app/Contents/Info.plist" ]; then
+					/usr/libexec/PlistBuddy -c 'Print CFBundleIdentifier' "$app/Contents/Info.plist"
+				fi
+			done
+		fi
 	fi
 }
 
