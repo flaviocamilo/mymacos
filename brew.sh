@@ -50,7 +50,6 @@ brew install imagemagick
 brew install jbake
 brew install moreutils
 brew install nmap
-brew install openssl
 brew install p7zip
 brew install postgresql
 brew install pow
@@ -66,25 +65,22 @@ brew install pstree
 brew install screen
 brew install shellcheck
 brew install sourcekitten
-brew install sqlite
 brew install ssh-copy-id
 brew install swiftlint
 brew install tidy-html5
-brew install tomcat
+brew install tomcat --ignore-dependencies
 brew install tree
-brew install unixodbc
 brew install unrar
-brew install vim --override-system-vi --with-python3
+brew install vim --with-override-system-vi --with-python3
 brew install watchman
 brew install wget
 brew install wiki
-brew install xz
 brew install z
 
 brew install git --with-brewed-curl --with-brewed-openssl
 brew install git-flow-avh
 brew install gist
-brew install ghi
+# brew install ghi // FIXME - Needs to install gem pygments.rb prior to it (and we haven't loaded the new Ruby yet)
 brew install hub
 
 brew install docker
@@ -104,9 +100,6 @@ brew install irssi
 brew install libvo-aacenc
 brew install mpv --with-bundle --with-libdvdnav --with-libdvdread
 brew linkapps mpv
-brew install x264
-brew install xvid
-brew install youtube-dl
 
 brew update
 
