@@ -34,6 +34,7 @@ brew cask install sequel-pro
 sudo -S -v <<< "${PASSWORD}" 2> /dev/null
 brew cask install slack
 brew cask install sqlitebrowser
+brew cask install telegram
 sudo -S -v <<< "${PASSWORD}" 2> /dev/null
 brew cask install vagrant
 # brew cask install virtualbox

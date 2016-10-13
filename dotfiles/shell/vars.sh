@@ -17,15 +17,12 @@ HOMEBREW_CELLAR=$(brew --cellar)
 export HOMEBREW_CELLAR
 HOMEBREW_CACHE=$(brew --cache)
 export HOMEBREW_CACHE
+HOMEBREW_CASKROOM="${HOMEBREW_PREFIX}/Caskroom"
+export HOMEBREW_CASKROOM
 JAVA_HOME=$(/usr/libexec/java_home)
 export JAVA_HOME
 
 export PATH="/usr/local/opt/coreutils/libexec/gnubin:/usr/local/bin:/usr/libexec:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin"
-coreutils_manpath='/usr/local/opt/coreutils/libexec/gnuman'
-if [[ $MANPATH' ' == ' ' ]]; then
-	export MANPATH="$coreutils_manpath"
-else
-	[[ $coreutils_manpath != $MANPATH ]] && export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
-fi
+export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:/usr/local/share/man:/usr/share/man:/usr/X11/man"
 
-[ -d $HOME/.myprivateosx ] && export MYPRIVATEOSX_HOME="$HOME/.myprivateosx"
+[ -d "${HOME}/.myprivateosx" ] && export MYPRIVATEOSX_HOME="${HOME}/.myprivateosx"
