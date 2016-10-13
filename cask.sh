@@ -20,7 +20,8 @@ brew cask install freemind
 brew cask install github-desktop
 brew cask install gitkraken
 brew cask install google-chrome-dev
-# brew cask install gpgtools
+sudo -S -v <<< "${PASSWORD}" 2> /dev/null
+brew cask install gpgtools
 # brew cask install hopper-disassembler
 brew cask install kaleidoscope
 brew cask install kindle
