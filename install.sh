@@ -10,13 +10,13 @@
 		sudo -S -v <<< "${PASSWORD}" 2> /dev/null
 	done
 
-	read -e -p "Do you want to install your MyPrivateOSX (y/n)? " -i "y" WILL_INSTALL_MYPRIVATEOSX < /dev/tty
-	echo
-	if [ $WILL_INSTALL_MYPRIVATEOSX == 'y' ]; then
-		read -e -p "GitHub User: " -i "${USER}" GH_USER < /dev/tty
+#	read -e -p "Do you want to install your MyPrivateOSX (y/n)? " WILL_INSTALL_MYPRIVATEOSX < /dev/tty
+#	echo
+#	if [ $WILL_INSTALL_MYPRIVATEOSX == 'y' ]; then
+		read -e -p "GitHub User: " GH_USER < /dev/tty
 		read -s -p "GitHub Password: " GH_PASS < /dev/tty
 		echo
-	fi
+#	fi
 
 	sudo -S -v <<< "${PASSWORD}" 2> /dev/null
 	sudo launchctl config user umask 027 &> /dev/null
@@ -29,7 +29,7 @@
 	sudo -S -v <<< "${PASSWORD}" 2> /dev/null
 	sudo xcodebuild -license accept
 
-	if [ $WILL_INSTALL_MYPRIVATEOSX == 'y' ]; then
+#	if [ $WILL_INSTALL_MYPRIVATEOSX == 'y' ]; then
 		MYPRIVATEOSX_DOWNLOAD_RETURN_CODE=$(curl -w %{http_code} -u "$GH_USER:$GH_PASS" -fsSL "https://github.com/$GH_USER/myprivateosx/archive/master.zip" -o myprivateosx.zip 2> /dev/null)
 		if [ $MYPRIVATEOSX_DOWNLOAD_RETURN_CODE == '200' ]; then
 			unzip -oq myprivateosx.zip
@@ -46,7 +46,7 @@
 		else
 			echo "Couldn't install MyPrivateOSX."
 		fi
-	fi
+#	fi
 
 	MYOSX_DOWNLOAD_RETURN_CODE=$(curl -w %{http_code} -u "$GH_USER:$GH_PASS" -fsSL "https://github.com/$GH_USER/myosx/archive/master.zip" -o myosx.zip 2> /dev/null)
 	if [ $MYOSX_DOWNLOAD_RETURN_CODE == '200' ]; then
