@@ -67,7 +67,7 @@
 
 	read -n1 -s -p $'\n-------------- Done! --------------\n-----------------------------------\n  THIS SYSTEM IS GOING TO REBOOT!  \n---- Press any key to continue ----\n\n\a'
 
-	killall caffeinate
+	killall caffeinate &> /dev/null
 
 	sudo -S -v <<< "${PASSWORD}" 2> /dev/null
 	sudo shutdown -r now &
