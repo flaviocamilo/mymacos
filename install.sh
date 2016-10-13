@@ -23,11 +23,12 @@
 	umask 027
 
 	"xcode-select" --install 2> /dev/null
-	until [[ $("xcode-select" -p 2> /dev/null | grep -e '/Applications/Xcode.app' -e '/Library/Developer/CommandLineTools') ]]; do
+#	until [[ $("xcode-select" -p 2> /dev/null | grep -e '/Applications/Xcode.app' -e '/Library/Developer/CommandLineTools') ]]; do
+	until [[ $("xcode-select" -p 2> /dev/null | grep -e '/Library/Developer/CommandLineTools') ]]; do
 		sleep 5
 	done
 	sudo -S -v <<< "${PASSWORD}" 2> /dev/null
-	sudo xcodebuild -license accept
+#	sudo xcodebuild -license accept
 
 #	if [ $WILL_INSTALL_MYPRIVATEOSX == 'y' ]; then
 		MYPRIVATEOSX_DOWNLOAD_RETURN_CODE=$(curl -w %{http_code} -u "$GH_USER:$GH_PASS" -fsSL "https://github.com/$GH_USER/myprivateosx/archive/master.zip" -o myprivateosx.zip 2> /dev/null)
