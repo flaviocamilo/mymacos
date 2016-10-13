@@ -2,6 +2,7 @@
 
 {
 	caffeinate &
+	caffeinate_pid=$!
 
 	until sudo -n true 2> /dev/null; do
 		read -s -p "macOS Password: " PASSWORD < /dev/tty
@@ -67,7 +68,7 @@
 
 	read -n1 -s -p $'\n-------------- Done! --------------\n-----------------------------------\n  THIS SYSTEM IS GOING TO REBOOT!  \n---- Press any key to continue ----\n\n\a'
 
-	killall caffeinate &> /dev/null
+	kill $caffeinate_pid; wait $caffeinate_pid &> /dev/null
 
 	sudo -S -v <<< "${PASSWORD}" 2> /dev/null
 	sudo shutdown -r now &
