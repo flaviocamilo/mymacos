@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+echo "==> Installing Cask and packages..."
+
 brew tap caskroom/cask
 brew install brew-cask-completion
 brew tap caskroom/versions

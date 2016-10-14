@@ -1,17 +1,21 @@
 #!/usr/bin/env bash
 
+echo "==> Setting OSX preferences..."
+
+sudo -S -v <<< "${PASSWORD}" 2> /dev/null
+
 ### GENERAL
 chflags nohidden "${HOME}/Library"
 sudo systemsetup -settimezone "America/Sao_Paulo" > /dev/null
 sudo scutil --set LocalHostName "tocsin"
 sudo scutil --set ComputerName "Flávio's MacBook Pro"
-defaults -currentHost write com.apple.ImageCapture disableHotPlug -bool true
 defaults write -g AppleAquaColorVariant -int 6
 defaults write -g AppleHighlightColor -string "0.470588 0.611765 0.831373"
 defaults write -g AppleFontSmoothing -int 2
 defaults write -g AppleShowScrollBars -string "Automatic"
 defaults write -g NSQuitAlwaysKeepsWindows -bool false
 defaults write -g NSTableViewDefaultSizeMode -int 1
+defaults write -g userMenuExtraStyle -int 2
 defaults write -g com.apple.springing.delay -float 0.5
 defaults write -g com.apple.springing.enabled -bool true
 defaults write com.apple.crashreporter DialogType -string "none"
@@ -19,10 +23,11 @@ defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
 defaults write com.apple.frameworks.diskimages skip-verify -bool true
 defaults write com.apple.frameworks.diskimages skip-verify-locked -bool true
 defaults write com.apple.frameworks.diskimages skip-verify-remote -bool true
+defaults write com.apple.imagecapture disableHotPlug -bool true
 defaults write com.apple.launchservices LSQuarantine -bool false
 defaults write com.apple.screencapture location -string "${HOME}/Pictures/Screenshots"
 defaults write com.apple.screencapture type -string "png"
-defaults write com.apple.systemuiserver menuExtras -array "/System/Library/CoreServices/Menu Extras/AirPort.menu" "System/Library/CoreServices/Menu Extras/VPN.menu" "/System/Library/CoreServices/Menu Extras/Bluetooth.menu" "/System/Library/CoreServices/Menu Extras/TimeMachine.menu" "/System/Library/CoreServices/Menu Extras/Clock.menu" "System/Library/CoreServices/Menu Extras/User.menu" "System/Library/CoreServices/Menu Extras/iChat.menu" "System/Library/CoreServices/Menu Extras/TextInput.menu"
+defaults write com.apple.systemuiserver menuExtras -array "/System/Library/CoreServices/Menu Extras/AirPort.menu" "/System/Library/CoreServices/Menu Extras/Bluetooth.menu" "/System/Library/CoreServices/Menu Extras/TimeMachine.menu" "/System/Library/CoreServices/Menu Extras/TextInput.menu" "System/Library/CoreServices/Menu Extras/iChat.menu" "System/Library/CoreServices/Menu Extras/User.menu" "System/Library/CoreServices/Menu Extras/Clock.menu"
 
 ### DESKTOP & SCREEN SAVER
 defaults write com.apple.dock wvous-br-corner -int 6
@@ -40,7 +45,7 @@ defaults write com.apple.dock mineffect -string "scale"
 defaults write com.apple.dock minimize-to-application -bool true
 defaults write com.apple.dock mouse-over-hilite-stack -bool true
 defaults write com.apple.dock showhidden -bool true
-defaults write com.apple.dock tilesize -int 40
+defaults write com.apple.dock tilesize -int 35
 
 ### MISSION CONTROL
 defaults write com.apple.dock mru-spaces -bool false
@@ -68,19 +73,24 @@ defaults write -g AppleEnableMouseSwipeNavigateWithScrolls -bool true
 defaults write -g com.apple.mouse.scaling -float 1
 defaults write com.apple.AppleMultitouchMouse MouseButtonMode -string "TwoButton"
 defaults write com.apple.AppleMultitouchMouse MouseOneFingerDoubleTapGesture -int 1
-defaults write com.apple.driver.AppleBluetoothMultitouch.mouse -string "TwoButton"
+defaults write com.apple.driver.AppleBluetoothMultitouch.mouse "save.MouseButtonMode.v1" -int 1
+defaults write com.apple.driver.AppleBluetoothMultitouch.mouse MouseButtonMode -string "TwoButton"
 defaults write com.apple.driver.AppleBluetoothMultitouch.mouse MouseOneFingerDoubleTapGesture -int 1
 
 ### TRACKPAD
+defaults -currentHost write -g com.apple.mouse.tapBehavior -int 1
+defaults write -g com.apple.mouse.tapBehavior -int 1
 defaults write -g com.apple.trackpad.scaling -float 0.875
-defaults write com.apple.AppleMultitouchTrackpad Clicking -bool true
-defaults write com.apple.AppleMultitouchTrackpad TrackpadThreeFingerDrag -bool true
+sudo defaults write com.apple.AppleMultitouchTrackpad Clicking -int 1
+defaults write com.apple.AppleMultitouchTrackpad Clicking -int 1
+defaults write com.apple.AppleMultitouchTrackpad TrackpadThreeFingerDrag -int 1
 defaults write com.apple.AppleMultitouchTrackpad TrackpadThreeFingerHorizSwipeGesture -int 0
 defaults write com.apple.AppleMultitouchTrackpad TrackpadThreeFingerTapGesture -int 2
 defaults write com.apple.AppleMultitouchTrackpad TrackpadThreeFingerVertSwipeGesture -int 0
 defaults write com.apple.dock showAppExposeGestureEnabled -int 1
-defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool true
-defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadThreeFingerDrag -bool true
+sudo defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -int 1
+defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -int 1
+defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadThreeFingerDrag -int 1
 defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadThreeFingerHorizSwipeGesture -int 0
 defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadThreeFingerTapGesture -int 2
 defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadThreeFingerVertSwipeGesture -int 0
@@ -214,14 +224,16 @@ defaults write org.m0k.transmission WarningLegal -bool false
 # defaults write com.twitter.twitter-mac ESCClosesComposeWindow -bool true
 # defaults write com.twitter.twitter-mac ShowFullNames -bool true
 
+echo "==> Installing Fira System Fonts..."
 if [[ ! -f /Library/Fonts/FSText-Regular.otf ]]; then
 	curl -O -L -s https://github.com/jenskutilek/FiraSystemFontReplacement/releases/download/v4.106.1/fira-system-fonts-installer.zip
-	unzip fira-system-fonts-installer.zip
+	unzip -oq fira-system-fonts-installer.zip
 	sudo -S -v <<< "${PASSWORD}" 2> /dev/null
 	sudo installer -pkg "Fira System Fonts.pkg" -target / &> /dev/null
 	rm -f fira-system-fonts-installer.zip "Fira System Fonts.pkg"
 fi
 
+echo "==> Updating OSX..."
 sudo softwareupdate -i -a
 
 for app in "Activity Monitor" "Address Book" "Calendar" "Contacts" "cfprefsd" "Dock" "Finder" "iTunes" "Mail" "Messages" "Moom" "Safari" "SystemUIServer" "TextEdit" "Time Machine" "Transmission" "Twitter"; do

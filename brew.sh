@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+echo "==> Installing Homebrew and packages..."
+
 if [[ ! -f /usr/local/bin/brew ]]; then
 	sudo -S -v <<< "${PASSWORD}" 2> /dev/null
 	ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)" < /dev/null
@@ -56,17 +58,17 @@ brew install pow
 mkdir -p "${HOME}/Library/Application Support/Pow/Hosts"
 ln -s "${HOME}/Library/Application Support/Pow/Hosts" "${HOME}/.pow"
 sudo -S -v <<< "${PASSWORD}" 2> /dev/null
-sudo pow --install-system
+sudo pow --install-system &> /dev/null
 sudo launchctl load -w /Library/LaunchDaemons/cx.pow.firewall.plist
-pow --install-local
+pow --install-local &> /dev/null
 launchctl load -w "${HOME}/Library/LaunchAgents/cx.pow.powd.plist"
 brew install psqlodbc
 brew install pstree
 brew install screen
 brew install shellcheck
-brew install sourcekitten
+# brew install sourcekitten # FIXME - Needs Xcode
 brew install ssh-copy-id
-brew install swiftlint
+# brew install swiftlint # FIXME - Needs Xcode
 brew install tidy-html5
 brew install tomcat --ignore-dependencies
 brew install tree

@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+echo "==> Installing Atom packages..."
+
 apm i nuclide
 
 apm i file-icons
