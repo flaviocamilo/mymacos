@@ -10,7 +10,7 @@ sudo systemsetup -settimezone "America/Sao_Paulo" > /dev/null
 sudo scutil --set LocalHostName "tocsin"
 sudo scutil --set ComputerName "Flávio's MacBook Pro"
 defaults write -g AppleAquaColorVariant -int 6
-defaults write -g AppleHighlightColor -string "0.470588 0.611765 0.831373"
+defaults write -g AppleHighlightColor -string "0.566526 0.632862 0.729481"
 defaults write -g AppleFontSmoothing -int 2
 defaults write -g AppleShowScrollBars -string "Automatic"
 defaults write -g NSQuitAlwaysKeepsWindows -bool false
@@ -79,6 +79,10 @@ defaults write com.apple.driver.AppleBluetoothMultitouch.mouse MouseOneFingerDou
 
 ### TRACKPAD
 defaults -currentHost write -g com.apple.mouse.tapBehavior -int 1
+defaults -currentHost write -g com.apple.trackpad.threeFingerDragGesture -int 1
+defaults -currentHost write -g com.apple.trackpad.threeFingerHorizSwipeGesture -int 0
+defaults -currentHost write -g com.apple.trackpad.threeFingerTapGesture -int 2
+defaults -currentHost write -g com.apple.trackpad.threeFingerVertSwipeGesture -int 0
 defaults write -g com.apple.mouse.tapBehavior -int 1
 defaults write -g com.apple.trackpad.scaling -float 0.875
 sudo defaults write com.apple.AppleMultitouchTrackpad Clicking -int 1
@@ -112,6 +116,9 @@ defaults write com.apple.timemachine DoNotOfferNewDisksForBackup -bool true
 defaults write com.apple.universalaccess closeViewScrollWheelToggle -int 1
 defaults write com.apple.universalaccess flashScreen -bool true
 defaults write com.apple.systemsound com.apple.sound.beep.flash -bool true
+
+### BETTER TOUCH TOOL
+defaults write com.hegenberg.BetterTouchTool launchOnStartup -bool true
 
 ### CONTACTS
 defaults write -g NSPersonNameDefaultShortNameEnabled -bool true
@@ -223,6 +230,11 @@ defaults write org.m0k.transmission WarningLegal -bool false
 # defaults write com.twitter.twitter-mac openLinksInBackground -bool true
 # defaults write com.twitter.twitter-mac ESCClosesComposeWindow -bool true
 # defaults write com.twitter.twitter-mac ShowFullNames -bool true
+
+### WATTS
+defaults write com.binarytricks.watts ShowPercentage -bool false
+defaults write com.binarytricks.watts ShowTime -bool false
+defaults write com.binarytricks.watts StartAtLogin -bool false
 
 echo "==> Installing Fira System Fonts..."
 if [[ ! -f /Library/Fonts/FSText-Regular.otf ]]; then
