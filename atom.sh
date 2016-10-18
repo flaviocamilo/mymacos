@@ -2,6 +2,8 @@
 
 echo "==> Installing Atom packages..."
 
+sudo -S -v <<< "${PASSWORD}" 2> /dev/null
+
 apm i nuclide
 
 apm i file-icons

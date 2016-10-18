@@ -2,8 +2,9 @@
 
 echo "==> Installing Homebrew and packages..."
 
+sudo -S -v <<< "${PASSWORD}" 2> /dev/null
+
 if [[ ! -f /usr/local/bin/brew ]]; then
-	sudo -S -v <<< "${PASSWORD}" 2> /dev/null
 	ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)" < /dev/null
 fi
 

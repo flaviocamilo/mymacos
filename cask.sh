@@ -2,6 +2,8 @@
 
 echo "==> Installing Cask and packages..."
 
+sudo -S -v <<< "${PASSWORD}" 2> /dev/null
+
 brew tap caskroom/cask
 brew install brew-cask-completion
 brew tap caskroom/versions
