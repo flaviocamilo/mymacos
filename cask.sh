@@ -8,6 +8,7 @@ brew tap caskroom/cask
 brew install brew-cask-completion
 brew tap caskroom/versions
 brew tap caskroom/fonts
+brew tap colindean/fonts-nonfree
 
 sudo -S -v <<< "${PASSWORD}" 2> /dev/null
 brew cask install java
@@ -75,5 +76,6 @@ brew cask install font-fira-sans
 brew cask install font-inconsolata
 brew cask install font-office-code-pro
 brew cask install font-source-code-pro
+brew cask install font-microsoft-office
 
 brew cask cleanup
