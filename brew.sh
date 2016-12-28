@@ -78,6 +78,7 @@ brew install vim --with-override-system-vi --with-python3
 brew install watchman
 brew install wget
 brew install wiki
+brew install yarn
 brew install z
 
 brew install git --with-brewed-curl --with-brewed-openssl
