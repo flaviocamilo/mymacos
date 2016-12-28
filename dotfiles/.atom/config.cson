@@ -1,10 +1,11 @@
 "*":
   core:
     disabledPackages: [
-      "tree-view"
-      "metrics"
       "autosave"
       "linter"
+      "metrics"
+      "tree-view"
+      "whitespace"
     ]
     openEmptyEditorOnStart: false
     projectHome:
@@ -21,7 +22,7 @@
     preferredLineLength: 120
     showIndentGuide: true
     tabLength: 4
-    tabType: "hard"
+    tabType: "auto"
   emmet:
     extensionsPath: "~/.emmet"
   "find-and-replace":
