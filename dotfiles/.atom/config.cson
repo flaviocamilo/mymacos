@@ -55,6 +55,8 @@
       revealFileOnSwitch: true
     "nuclide-home":
       showHome: false
+    use:
+      "nuclide-source-control-side-bar": false
   "one-dark-ui":
     layoutMode: "Compact"
     tabSizing: "Even"
