@@ -1,32 +1,8 @@
-'.platform-darwin atom-workspace atom-text-editor:not([mini])':
-	'shift-cmd-enter': 'unset!'
-	'shift-cmd-enter': 'maximize-panes:maximize'
-	'alt-shift-cmd-enter': 'nuclide-distraction-free-mode:toggle'
-
-'.platform-darwin atom-text-editor:not([mini])':
-	'ctrl-alt-up': 'unset!'
-	'ctrl-alt-down': 'unset!'
-
-'.platform-darwin atom-workspace atom-text-editor:not(.mini)':
-	'ctrl-alt-up': 'ctrl-dir-scroll:scroll-up'
-	'ctrl-alt-down': 'ctrl-dir-scroll:scroll-down'
-
-'atom-workspace, atom-workspace atom-text-editor':
-	'ctrl-shift-m': 'unset!'
-	'ctrl-alt-m': 'markdown-preview:toggle'
-
-'atom-workspace atom-text-editor:not([mini])':
-	'ctrl-enter': 'editor:newline-above'
-
-'.platform-darwin atom-text-editor':
-	'ctrl-r': 'unset!'
-	'ctrl-r': 'run:selection'
-	'ctrl-shift-r': 'unset!'
-	'ctrl-alt-r': 'run:file'
-
-'atom-text-editor:not([mini])':
-	'ctrl-shift-m': 'emmet:merge-lines'
-	'ctrl-shift-r': 'emmet:reflect-css-value'
+'body':
+    'ctrl-tab ^ctrl': 'unset!'
+    'ctrl-tab': 'pane:show-next-item'
+    'ctrl-shift-tab ^ctrl': 'unset!'
+    'ctrl-shift-tab': 'pane:show-previous-item'
 
 'atom-workspace':
 	'alt-shift-t': 'whitespace:convert-spaces-to-tabs'
@@ -35,11 +11,34 @@
 	'ctrl-alt-s': 'status-bar:toggle'
 	'ctrl-alt-k': 'nuclide-task-runner:toggle-Buck-toolbar'
 
-'.platform-darwin, .platform-linux, .platform-win32':
-	'alt-shift-d': 'unset!'
-	'ctrl-alt-e': 'nuclide-diagnostics-ui:toggle-table'
+'atom-workspace atom-text-editor:not([mini])':
+	'ctrl-enter': 'editor:newline-above'
+
+'atom-workspace, atom-workspace atom-text-editor':
+	'ctrl-shift-m': 'unset!'
+	'ctrl-alt-m': 'markdown-preview:toggle'
 
 '.platform-darwin atom-workspace':
 	'alt-cmd-j': 'unset!'
 	'ctrl-alt-c': 'nuclide-console:toggle'
 	'alt-cmd-r': 'nuclide-recent-files-provider:toggle-provider'
+
+'.platform-darwin atom-text-editor':
+	'ctrl-r': 'run:selection'
+	'ctrl-shift-r': 'unset!'
+	'ctrl-alt-r': 'run:file'
+
+'.platform-darwin atom-text-editor:not([mini])':
+	'ctrl-alt-up': 'unset!'
+	'ctrl-alt-down': 'unset!'
+
+'.platform-darwin atom-workspace atom-text-editor:not([mini])':
+	'shift-cmd-enter': 'maximize-panes:maximize'
+	'alt-shift-cmd-enter': 'nuclide-distraction-free-mode:toggle'
+	'ctrl-alt-up': 'ctrl-dir-scroll:scroll-up'
+	'ctrl-alt-down': 'ctrl-dir-scroll:scroll-down'
+
+'.platform-darwin, .platform-linux, .platform-win32':
+	'alt-shift-d': 'unset!'
+	'ctrl-alt-e': 'nuclide-diagnostics-ui:toggle-table'
+
