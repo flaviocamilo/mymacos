@@ -1,22 +1,35 @@
 'body':
-    'ctrl-tab ^ctrl': 'unset!'
-    'ctrl-tab': 'pane:show-next-item'
-    'ctrl-shift-tab ^ctrl': 'unset!'
-    'ctrl-shift-tab': 'pane:show-previous-item'
+	'ctrl-tab ^ctrl': 'unset!'
+	'ctrl-tab': 'pane:show-next-item'
+	'ctrl-shift-tab ^ctrl': 'unset!'
+	'ctrl-shift-tab': 'pane:show-previous-item'
+	'cmd-k alt-cmd-w': 'unset!'
+	'alt-cmd-w': 'pane:close-other-items'
 
 'atom-workspace':
-	'alt-shift-t': 'whitespace:convert-spaces-to-tabs'
+	'ctrl-alt-k': 'nuclide-task-runner:toggle-toolbar-visibility'
+	'ctrl-alt-m': 'minimap:toggle'
 	'alt-o': 'unset!'
 	'ctrl-alt-o': 'nuclide-outline-view:toggle'
 	'ctrl-alt-s': 'status-bar:toggle'
-	'ctrl-alt-k': 'nuclide-task-runner:toggle-Buck-toolbar'
+#   'ctrl-shift-t': 'whitespace:convert-spaces-to-tabs'
+	'ctrl-shift-t': 'tabs-to-spaces:tabify'
+	'ctrl-alt-shift-t': 'tabs-to-spaces:untabify'
+
+'atom-text-editor':
+	'ctrl-alt-d': 'unset!'
+	'ctrl-alt-f': 'unset!'
 
 'atom-workspace atom-text-editor:not([mini])':
 	'ctrl-enter': 'editor:newline-above'
 
 'atom-workspace, atom-workspace atom-text-editor':
 	'ctrl-shift-m': 'unset!'
-	'ctrl-alt-m': 'markdown-preview:toggle'
+	'ctrl-alt-shift-m': 'markdown-preview:toggle'
+
+'.platform-darwin':
+	'cmd-\\': 'unset!'
+	'ctrl-alt-f': 'tree-view:toggle'
 
 '.platform-darwin atom-workspace':
 	'alt-cmd-j': 'unset!'
@@ -38,7 +51,12 @@
 	'ctrl-alt-up': 'ctrl-dir-scroll:scroll-up'
 	'ctrl-alt-down': 'ctrl-dir-scroll:scroll-down'
 
+'.platform-darwin .find-and-replace':
+	'alt-cmd-w': 'unset!'
+
+'.platform-darwin .project-find':
+	'alt-cmd-w': 'unset!'
+
 '.platform-darwin, .platform-linux, .platform-win32':
 	'alt-shift-d': 'unset!'
-	'ctrl-alt-e': 'nuclide-diagnostics-ui:toggle-table'
-
+	'ctrl-alt-d': 'nuclide-diagnostics-ui:toggle-table'

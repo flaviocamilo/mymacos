@@ -2,23 +2,37 @@
   core:
     allowPendingPaneItems: false
     disabledPackages: [
+      "about"
       "autosave"
+      "background-tips"
+      "language-c"
+      "language-closure"
+      "language-csharp"
+      "language-go"
+      "language-java"
+      "language-make"
+      "language-mustache"
+      "language-perl"
+      "language-php"
+      "language-python"
+      "language-toml"
       "linter"
       "metrics"
-      "tree-view"
+      "timecop"
+      "welcome"
       "whitespace"
     ]
     openEmptyEditorOnStart: false
     projectHome:
     telemetryConsent: "no"
     themes: [
-      "one-dark-ui"
-      "base16-tomorrow-dark-theme"
+      "one-light-ui"
+      "one-light-syntax"
     ]
     useCustomTitleBar: true
   editor:
-    fontFamily: "CamingoCode"
-    fontSize: 12
+    fontFamily: "Operator Mono"
+    fontSize: 13
     lineHeight: 1.6
     preferredLineLength: 120
     showIndentGuide: true
@@ -57,15 +71,28 @@
     "nuclide-home":
       showHome: false
     use:
+      "nuclide-file-tree": false
       "nuclide-source-control-side-bar": false
   "one-dark-ui":
-    layoutMode: "Compact"
-    tabSizing: "Even"
+    layoutMode: "Spacious"
+    tabSizing: "Minimum"
+  "one-light-ui":
+    layoutMode: "Spacious"
+    tabSizing: "Minimum"
+  runner:
+    scopes:
+      js: "./node_modules/.bin/babel-node"
   tabs:
     addNewTabsAtEnd: true
     enableVcsColoring: true
+  "tabs-to-spaces":
+    onSave: "tabify"
   "tool-bar":
     iconSize: "16px"
     position: "Left"
   welcome:
     showOnStartup: false
+
+".yaml":
+  "tabs-to-spaces":
+    onSave: "untabify"

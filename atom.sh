@@ -31,3 +31,4 @@ apm i emmet
 apm i git-plus
 apm i merge-conflicts
 apm i sort-lines
+apm i tabs-to-spaces
