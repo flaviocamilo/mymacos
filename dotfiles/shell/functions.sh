@@ -9,8 +9,7 @@ brew_cask_upgrade() {
 			installed_version=$(grep "${HOMEBREW_CASKROOM}" <<< $info | tail -n 1 | sed -e "s:${HOMEBREW_CASKROOM}/$app/::g" | sed -e 's: [[:graph:][:space:]]*::')
 			if [[ $latest_version != $installed_version ]]; then
 				echo "Upgrading $app [$installed_version -> $latest_version]..."
-				brew cask install --force $app &> /dev/null
-				echo "Upgraded $app."
+				brew cask reinstall $app &> /dev/null
 			fi
 		fi
 	done
