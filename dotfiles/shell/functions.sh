@@ -2,13 +2,16 @@
 
 brew_cask_upgrade() {
 	for app in $(brew cask list -1 | sort); do
-		latest_version=$(brew cask info $app | grep "$app: " | sed -e "s/$app: //g")
-		installed_version=$(brew cask info $app | grep "${HOMEBREW_CASKROOM}" | tail -n 1 | sed -e "s:${HOMEBREW_CASKROOM}/$app/::g" | sed -e 's: [[:graph:][:space:]]*::')
-		if [[ $latest_version != $installed_version ]]; then
-			echo "Upgrading $app..."
-			brew cask uninstall --force $app &> /dev/null
-			brew cask install $app &> /dev/null
-			echo "Upgraded $app [v$installed_version -> v$latest_version]."
+		auto_updates=$(brew cask cat $app | grep 'auto_updates true')
+		if [[ -z $auto_updates ]]; then
+			info=$(brew cask info $app)
+			latest_version=$(grep "$app: " <<< $info | sed -e "s/$app: //g")
+			installed_version=$(grep "${HOMEBREW_CASKROOM}" <<< $info | tail -n 1 | sed -e "s:${HOMEBREW_CASKROOM}/$app/::g" | sed -e 's: [[:graph:][:space:]]*::')
+			if [[ $latest_version != $installed_version ]]; then
+				echo "Upgrading $app [$installed_version -> $latest_version]..."
+				brew cask install --force $app &> /dev/null
+				echo "Upgraded $app."
+			fi
 		fi
 	done
 }
