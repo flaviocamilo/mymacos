@@ -1,14 +1,13 @@
 #!/usr/bin/env bash
 
-echo "==> Setting OSX preferences..."
-
-sudo -S -v <<< "${PASSWORD}" 2> /dev/null
+echo -e "\n==> Setting OSX preferences..."
 
 ### GENERAL
 chflags nohidden "${HOME}/Library"
+sudo pmset -a disksleep 0 &> /dev/null
 sudo systemsetup -settimezone "America/Sao_Paulo" > /dev/null
-sudo scutil --set LocalHostName "tocsin"
-sudo scutil --set ComputerName "Flávio's MacBook Pro"
+sudo scutil --set LocalHostName "${HOST_NAME}"
+sudo scutil --set ComputerName "${COMPUTER_NAME}"
 defaults write -g AppleAquaColorVariant -int 6
 defaults write -g AppleHighlightColor -string "0.566526 0.632862 0.729481"
 defaults write -g AppleFontSmoothing -int 2
@@ -27,7 +26,6 @@ defaults write com.apple.imagecapture disableHotPlug -bool true
 defaults write com.apple.launchservices LSQuarantine -bool false
 defaults write com.apple.screencapture location -string "${HOME}/Pictures/Screenshots"
 defaults write com.apple.screencapture type -string "png"
-defaults write com.apple.systemuiserver menuExtras -array "/System/Library/CoreServices/Menu Extras/AirPort.menu" "/System/Library/CoreServices/Menu Extras/Bluetooth.menu" "/System/Library/CoreServices/Menu Extras/TimeMachine.menu" "/System/Library/CoreServices/Menu Extras/TextInput.menu" "System/Library/CoreServices/Menu Extras/iChat.menu" "System/Library/CoreServices/Menu Extras/User.menu" "System/Library/CoreServices/Menu Extras/Clock.menu"
 
 ### DESKTOP & SCREEN SAVER
 defaults write com.apple.dock wvous-br-corner -int 6
@@ -149,14 +147,6 @@ defaults write com.apple.finder ShowStatusBar -bool true
 defaults write com.apple.finder ShowTabView -bool true
 defaults write com.apple.finder SidebarWidth -int 195
 defaults write com.apple.finder WarnOnEmptyTrash -bool false
-# /usr/libexec/PlistBuddy -c "Set :FK_StandardViewSettings:IconViewSettings:showItemInfo true" "${HOME}/Library/Preferences/com.apple.finder.plist"
-# /usr/libexec/PlistBuddy -c "Set :StandardViewSettings:IconViewSettings:showItemInfo true" "${HOME}/Library/Preferences/com.apple.finder.plist"
-# /usr/libexec/PlistBuddy -c "Set :FK_StandardViewSettings:IconViewSettings:arrangeBy grid" "${HOME}/Library/Preferences/com.apple.finder.plist"
-# /usr/libexec/PlistBuddy -c "Set :StandardViewSettings:IconViewSettings:arrangeBy grid" "${HOME}/Library/Preferences/com.apple.finder.plist"
-# /usr/libexec/PlistBuddy -c "Set :FK_StandardViewSettings:IconViewSettings:gridSpacing 100" "${HOME}/Library/Preferences/com.apple.finder.plist"
-# /usr/libexec/PlistBuddy -c "Set :StandardViewSettings:IconViewSettings:gridSpacing 100" "${HOME}/Library/Preferences/com.apple.finder.plist"
-# /usr/libexec/PlistBuddy -c "Set :FK_StandardViewSettings:IconViewSettings:iconSize 80" "${HOME}/Library/Preferences/com.apple.finder.plist"
-# /usr/libexec/PlistBuddy -c "Set :StandardViewSettings:IconViewSettings:iconSize 80" "${HOME}/Library/Preferences/com.apple.finder.plist"
 
 ### HELPVIEWER
 defaults write com.apple.helpviewer DevMode -bool true
@@ -200,24 +190,6 @@ defaults write com.apple.TextEdit RichText -int 0
 ### TERMINAL
 defaults write com.apple.Terminal StringEncodings -array 4
 defaults write com.apple.Terminal NewTabWorkingDirectoryBehavior -int 1
-osascript <<EOD
-tell application "Terminal"
-	local allOpenedWindows
-	local initialOpenedWindows
-	local windowID
-	set themeName to "flaviolarized"
-	set initialOpenedWindows to id of every window
-	do shell script "open '${MYOSX_HOME}/tty/" & themeName & ".terminal'"
-	delay 1
-	set default settings to settings set themeName
-	set allOpenedWindows to id of every window
-	repeat with windowID in allOpenedWindows
-		if initialOpenedWindows does not contain windowID then
-			close (every window whose id is windowID)
-		end if
-	end repeat
-end tell
-EOD
 
 ### TRANSMISSION
 defaults write org.m0k.transmission DownloadFolder -string "${HOME}/Downloads/Torrents/Complete"
@@ -226,28 +198,10 @@ defaults write org.m0k.transmission IncompleteDownloadFolder -string "${HOME}/Do
 defaults write org.m0k.transmission WarningDonate -bool false
 defaults write org.m0k.transmission WarningLegal -bool false
 
-### TWITTER
-# defaults write com.twitter.twitter-mac openLinksInBackground -bool true
-# defaults write com.twitter.twitter-mac ESCClosesComposeWindow -bool true
-# defaults write com.twitter.twitter-mac ShowFullNames -bool true
-
 ### WATTS
 defaults write com.binarytricks.watts ShowPercentage -bool false
-defaults write com.binarytricks.watts ShowTime -bool false
-defaults write com.binarytricks.watts StartAtLogin -bool false
+defaults write com.binarytricks.watts ShowTime -bool true
+defaults write com.binarytricks.watts StartAtLogin -bool true
 
-echo "==> Installing Fira System Fonts..."
-if [[ ! -f /Library/Fonts/FSText-Regular.otf ]]; then
-	curl -O -L -s https://github.com/jenskutilek/FiraSystemFontReplacement/releases/download/v4.106.1/fira-system-fonts-installer.zip
-	unzip -oq fira-system-fonts-installer.zip
-	sudo -S -v <<< "${PASSWORD}" 2> /dev/null
-	sudo installer -pkg "Fira System Fonts.pkg" -target / &> /dev/null
-	rm -f fira-system-fonts-installer.zip "Fira System Fonts.pkg"
-fi
-
-echo "==> Updating OSX..."
-sudo softwareupdate -i -a
-
-for app in "Activity Monitor" "Address Book" "Calendar" "Contacts" "cfprefsd" "Dock" "Finder" "iTunes" "Mail" "Messages" "Moom" "Safari" "SystemUIServer" "TextEdit" "Time Machine" "Transmission" "Twitter"; do
-	killall "$app" &> /dev/null
-done
+echo -e "\n==> Updating OSX..."
+sudo softwareupdate -i -a &> /dev/null

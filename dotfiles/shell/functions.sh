@@ -1,18 +1,34 @@
 #!/usr/bin/env bash
 
 brew_cask_upgrade() {
-	for app in $(brew cask list -1 | sort); do
-		auto_updates=$(brew cask cat $app | grep 'auto_updates true')
-		if [[ -z $auto_updates ]]; then
-			info=$(brew cask info $app)
-			latest_version=$(grep "$app: " <<< $info | sed -e "s/$app: //g")
-			installed_version=$(grep "${HOMEBREW_CASKROOM}" <<< $info | tail -n 1 | sed -e "s:${HOMEBREW_CASKROOM}/$app/::g" | sed -e 's: [[:graph:][:space:]]*::')
-			if [[ $latest_version != $installed_version ]]; then
-				echo "Upgrading $app [$installed_version -> $latest_version]..."
-				brew cask reinstall $app &> /dev/null
+	outdated_apps=$(brew cask outdated -gv)
+
+	counter=0
+	for word in $outdated_apps; do
+		counter=$((counter + 1))
+
+		remainder=$((counter % 4))
+		if [ $remainder -eq 1 ]; then
+			app_name=$word
+		else
+			if [ $remainder -eq 2 ]; then
+				actual_version=$word
+			else
+				if [ $remainder -eq 0 ]; then
+					new_version=$word
+					if [ $actual_version != "($new_version)" ]; then
+						echo "Upgrading $app_name [${actual_version//[(|)]/} -> $new_version]..."
+						brew cask reinstall $app_name
+					fi
+				fi
 			fi
 		fi
 	done
+}
+
+brew_cask_upgrade_all() {
+	echo "Upgrading all Cask apps..."
+	brew cask reinstall $(brew cask outdated -g)
 }
 
 finder_show_all_files() {
@@ -40,10 +56,10 @@ git_init() {
 	git commit -m "Initialize the project"
 }
 
-associate_extensions() {
-	for ext in {conf,css,js,json,md,php,plist,py,rb,sh,txt,xhtml,xml,yml}; do duti -s com.github.atom $ext all; done
-	for ext in {avi,flv,mkv,mov,mp4,mpeg,mpg,webm,wmv}; do duti -s io.mpv $ext all; done
-	for ext in {7z,bz2,gz,rar,tar,zip}; do duti -s com.aone.keka $ext all; done
+assign_file_extensions() {
+	for extension in {conf,css,js,json,md,php,plist,py,rb,sh,txt,xhtml,xml,yml}; do duti -s com.github.atom $extension all; done
+	for extension in {avi,flv,mkv,mov,mp4,mpeg,mpg,webm,wmv}; do duti -s io.mpv $extension all; done
+	for extension in {7z,bz2,gz,rar,tar,zip}; do duti -s com.aone.keka $extension all; done
 }
 
 get_application_bundle_id() {
@@ -61,6 +77,22 @@ get_application_bundle_id() {
 			done
 		fi
 	fi
+}
+
+pow_reconfigure() {
+	until sudo -n true 2> /dev/null; do
+		read -s -p "Password: " PASS < /dev/tty
+		echo
+		sudo -S -v <<< "$PASS" 2> /dev/null
+	done
+	echo -e "==> Reconfiguring Pow..."
+	launchctl unload -w "${HOME}/Library/LaunchAgents/cx.pow.powd.plist"
+	sudo launchctl unload -w /Library/LaunchDaemons/cx.pow.firewall.plist
+	sudo rm -f "${HOME}/Library/LaunchAgents/cx.pow.powd.plist" /Library/LaunchDaemons/cx.pow.firewall.plist
+	sudo pow --install-system &> /dev/null
+	pow --install-local &> /dev/null
+	sudo launchctl load -w /Library/LaunchDaemons/cx.pow.firewall.plist
+	launchctl load -w "${HOME}/Library/LaunchAgents/cx.pow.powd.plist"
 }
 
 #home_fix_permissions() {

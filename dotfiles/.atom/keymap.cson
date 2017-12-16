@@ -10,15 +10,17 @@
 	'ctrl-alt-k': 'nuclide-task-runner:toggle-toolbar-visibility'
 	'ctrl-alt-m': 'minimap:toggle'
 	'alt-o': 'unset!'
-	'ctrl-alt-o': 'nuclide-outline-view:toggle'
+	'ctrl-alt-o': 'outline-view:toggle'
 	'ctrl-alt-s': 'status-bar:toggle'
-#   'ctrl-shift-t': 'whitespace:convert-spaces-to-tabs'
+	# 'ctrl-shift-t': 'whitespace:convert-spaces-to-tabs'
 	'ctrl-shift-t': 'tabs-to-spaces:tabify'
 	'ctrl-alt-shift-t': 'tabs-to-spaces:untabify'
+	'cmd-escape': 'custom:focus-editor'
 
 'atom-text-editor':
 	'ctrl-alt-d': 'unset!'
 	'ctrl-alt-f': 'unset!'
+	'ctrl-alt-h': 'unset!'
 
 'atom-workspace atom-text-editor:not([mini])':
 	'ctrl-enter': 'editor:newline-above'
@@ -27,19 +29,23 @@
 	'ctrl-shift-m': 'unset!'
 	'ctrl-alt-shift-m': 'markdown-preview:toggle'
 
-'.platform-darwin':
-	'cmd-\\': 'unset!'
-	'ctrl-alt-f': 'tree-view:toggle'
+# '.platform-darwin':
+# 	'cmd-\\': 'unset!'
+# 	'ctrl-alt-f': 'tree-view:toggle'
 
 '.platform-darwin atom-workspace':
 	'alt-cmd-j': 'unset!'
 	'ctrl-alt-c': 'nuclide-console:toggle'
 	'alt-cmd-r': 'nuclide-recent-files-provider:toggle-provider'
+	'cmd-\\': 'unset!'
+	'cmd-k cmd-b': 'unset!'
+	'ctrl-alt-f': 'nuclide-file-tree:toggle'
 
 '.platform-darwin atom-text-editor':
-	'ctrl-r': 'run:selection'
+	'ctrl-alt-c': 'unset!'
+	'ctrl-r': 'run:file'
 	'ctrl-shift-r': 'unset!'
-	'ctrl-alt-r': 'run:file'
+	'ctrl-alt-r': 'run:selection'
 
 '.platform-darwin atom-text-editor:not([mini])':
 	'ctrl-alt-up': 'unset!'
@@ -59,4 +65,10 @@
 
 '.platform-darwin, .platform-linux, .platform-win32':
 	'alt-shift-d': 'unset!'
-	'ctrl-alt-d': 'nuclide-diagnostics-ui:toggle-table'
+	'ctrl-alt-d': 'diagnostics:toggle-table'
+
+'.workspace':
+	'ctrl-shift-9': 'unset!'
+	'ctrl-alt-g': 'github:toggle-git-tab'
+	'ctrl-shift-8': 'unset!'
+	'ctrl-alt-h': 'github:toggle-github-tab'

@@ -1,10 +1,20 @@
 "*":
+  "atom-clock":
+    dateFormat: "ddd MMM DD HH:mm:ss"
+    refreshInterval: 1
+  "autocomplete-plus":
+    enableAutoActivation: false
+    minimumWordLength: 0
   core:
     allowPendingPaneItems: false
+    closeDeletedFileTabs: true
     disabledPackages: [
       "about"
       "autosave"
       "background-tips"
+      "es6-javascript"
+      "exception-reporting"
+      "javascript-snippets"
       "language-c"
       "language-closure"
       "language-csharp"
@@ -19,29 +29,43 @@
       "linter"
       "metrics"
       "timecop"
+      "tree-view"
       "welcome"
       "whitespace"
     ]
     openEmptyEditorOnStart: false
     projectHome:
+    restorePreviousWindowsOnStart: "no"
     telemetryConsent: "no"
-    themes: [
-      "one-light-ui"
-      "one-light-syntax"
-    ]
-    useCustomTitleBar: true
+    titleBar: "hidden"
   editor:
-    fontFamily: "Operator Mono"
-    fontSize: 13
-    lineHeight: 1.6
+    atomicSoftTabs: false
+    fontFamily: "CamingoCode"
+    fontSize: 12
+    lineHeight: 1.5
     preferredLineLength: 120
+    scrollPastEnd: true
     showIndentGuide: true
     tabLength: 4
     tabType: "auto"
   emmet:
     extensionsPath: "~/.emmet"
   "find-and-replace":
-    openProjectFindResultsInRightPane: true
+    projectSearchResultsPaneSplitDirection: "right"
+  "git-diff": {}
+  "git-plus":
+    general:
+      analytics: false
+      splitPane: "Right"
+  github:
+    filesystemEventDiagnostics: true
+    gitDiagnostics: true
+    viewChangesForCurrentFileDiffPaneSplitDirection: "right"
+  "goto-definition":
+    performanceMode: true
+  "highlight-selected":
+    highlightBackground: true
+    lightTheme: true
   "language-babel":
     autoIndentJSX: true
     transpileOnSave: true
@@ -62,26 +86,81 @@
       "highlight-selectedDecorationsZIndex": 0
       linter: true
       linterDecorationsZIndex: 0
+  "minimap-git-diff":
+    useGutterDecoration: true
   nuclide:
     "nuclide-distraction-free-mode":
       hideStatusBar: true
       hideToolBar: true
     "nuclide-file-tree":
       revealFileOnSwitch: true
+      showOpenFiles: false
+      showUncommittedChanges: false
+    "nuclide-health":
+      toolbarJewel: "None"
     "nuclide-home":
       showHome: false
     use:
-      "nuclide-file-tree": false
       "nuclide-source-control-side-bar": false
   "one-dark-ui":
-    layoutMode: "Spacious"
-    tabSizing: "Minimum"
+    hideDockButtons: true
   "one-light-ui":
-    layoutMode: "Spacious"
-    tabSizing: "Minimum"
-  runner:
-    scopes:
-      js: "./node_modules/.bin/babel-node"
+    hideDockButtons: true
+  "one-vibrancy":
+    effect: "ultra-dark"
+  pigments:
+    dismissableReloadNotifications: false
+    markerType: "native-underline"
+    notifyReloads: false
+  "platformio-ide-terminal":
+    ansiColors:
+      normal:
+        black: "#043643"
+        blue: "#789cd4"
+        cyan: "#46aa78"
+        green: "#a6c95e"
+        magenta: "#a59cd4"
+        red: "#b34d49"
+        white: "#f0f0f0"
+        yellow: "#e9e258"
+      zBright:
+        brightBlack: "#002029"
+        brightBlue: "#708284"
+        brightCyan: "#819090"
+        brightGreen: "#465b62"
+        brightMagenta: "#5857ba"
+        brightRed: "#c03601"
+        brightWhite: "#fdf5db"
+        brightYellow: "#526870"
+    style:
+      fontFamily: "CamingoCode"
+      fontSize: "12"
+  "project-manager":
+    alwaysOpenInSameWindow: true
+    includeGitRepositories: true
+  "ruby-block":
+    highlightLineNumber: true
+    showBottomPanel: false
+  "spell-check":
+    addKnownWords: true
+    grammars: [
+      "source.asciidoc"
+      "source.gfm"
+      "source.ruby"
+      "text.git-commit"
+      "text.plain"
+      "text.plain.null-grammar"
+    ]
+    knownWords: [
+      "attr_reader"
+      "attr_writer"
+      "attr_accessor"
+      "Stacklike"
+      "stacklike"
+      "Vehiclelike"
+      "npm-debug.log"
+    ]
+  "status-bar": {}
   tabs:
     addNewTabsAtEnd: true
     enableVcsColoring: true
@@ -90,9 +169,9 @@
   "tool-bar":
     iconSize: "16px"
     position: "Left"
+  "tree-view":
+    autoReveal: true
+    hideIgnoredNames: true
+    hideVcsIgnoredFiles: true
   welcome:
     showOnStartup: false
-
-".yaml":
-  "tabs-to-spaces":
-    onSave: "untabify"

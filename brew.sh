@@ -1,112 +1,149 @@
 #!/usr/bin/env bash
 
-echo "==> Installing Homebrew and packages..."
-
-sudo -S -v <<< "${PASSWORD}" 2> /dev/null
-
+echo -e "\n==> Installing Homebrew..."
 if [[ ! -f /usr/local/bin/brew ]]; then
-	ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)" < /dev/null
+	ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)" <<< '' &> /dev/null
 fi
 
-brew tap homebrew/completions
-brew tap homebrew/dupes
-brew tap homebrew/games
-brew tap homebrew/versions
+brew tap neovim/neovim &> /dev/null
 
-brew install go
-brew install node --with-openssl
-brew install perl
-brew install python
-brew linkapps python
-brew install python3
-brew linkapps python3
-brew install ruby
-brew install ruby-completion
-brew install gem-completion
+echo -e "\n==> Installing MAS..."
+brew install mas &> /dev/null
+sleep 5
+open -a 'App Store' &> /dev/null
+sleep 15
+osascript -e 'tell application "System Events" to click menu item "Sign Out" in menu "Store" of menu bar item "Store" in menu bar 1 of process "App Store"' &> /dev/null
+sleep 15
+osascript -e 'tell application "App Store" to quit' &> /dev/null
+sleep 5
+mas signin "${MAS_USER}" "${MAS_PASS}" &> /dev/null
+sleep 10
 
-brew install apm-bash-completion
-brew install aria2
-brew install asciinema
-brew install bash
-sudo -S sh -c 'echo "/usr/local/bin/bash" >> /etc/shells' <<< "${PASSWORD}" 2> /dev/null
-sudo -S chsh -s '/usr/local/bin/bash' "${USER}" <<< "${PASSWORD}" 2> /dev/null
-brew install bash-completion2
-brew install ccat
-brew install checkbashisms
-brew install coreutils
-brew install cpulimit
-brew install curl --with-libssh2 --with-openssl
-brew install diffutils
-brew install doctl
-brew install duff
-brew install duti
-brew install fdupes
-brew install findutils --with-default-names
-brew install flow
-brew install gnu-sed --with-default-names
-brew install grep --with-default-names
-brew install highlight
-brew install htop-osx
-brew install httpie
-brew install iftop
-brew install imagemagick
-brew install jbake
-brew install moreutils
-brew install nmap
-brew install p7zip
-brew install postgresql
-brew install pow
+echo -e "\n==> Installing Xcode..."
+no_echo=$(mas install 497799835 &> /dev/null & sleep 30 && osascript -e 'tell application "System Events" to tell process "Terminal" to keystroke return' &> /dev/null)
+until [[ $("xcode-select" -p 2> /dev/null | grep -e '/Applications/Xcode.app/Contents/Developer') ]]; do
+	sleep 15
+done
+sudo xcodebuild -license accept
+
+brew_packages=(
+	'go'
+	'node --with-openssl'
+	'perl'
+	'python'
+	'python3'
+	'ruby'
+	'ruby-completion'
+	'gem-completion'
+	'rails-completion'
+
+	'apm-bash-completion'
+	'aria2'
+	'asciinema'
+	'aspell --with-lang-pt_BR'
+	'bash'
+	'bash-completion@2'
+	'ccat'
+	'certbot'
+	'checkbashisms'
+	'coreutils'
+	'cpulimit'
+	'ctop'
+	'curl --with-libssh2 --with-openssl'
+	'diffutils'
+	'doctl'
+	'duff'
+	'duti'
+	'fdupes'
+	'findutils --with-default-names'
+	'fish'
+	'flow'
+	'gnu-sed --with-default-names'
+	'grep --with-default-names'
+	'highlight'
+	'htop-osx'
+	'httpie'
+	'iftop'
+	'imagemagick'
+	'jbake'
+	'jrnl'
+	'moreutils'
+	'namebench'
+	'neovim'
+	'nmap'
+	'p7zip'
+	'postgresql'
+	'pow'
+	'psqlodbc'
+	'pstree'
+	'ripgrep'
+	'screen'
+	'shellcheck'
+	# 'sourcekitten' // FIXME - Needs to be compiled when <= El Capitan and so needs Xcode >= 8.3, not available for <= El Capitan
+	'sqlite'
+	'ssh-copy-id'
+	# 'swiftlint' // FIXME - Needs to be compiled when <= El Capitan and so needs Xcode >= 9.0, not available for <= El Capitan
+	'tidy-html5'
+	'tmux'
+	'tmuxinator-completion'
+	'tomcat --ignore-dependencies'
+	'tor'
+	'tree'
+	'unrar'
+	'vim --with-override-system-vi --with-python3'
+	'watchman'
+	'wget'
+	'wiki'
+	'yarn'
+	'z'
+	'zsh'
+
+	'git --with-curl --with-openssl'
+	'git-flow-avh'
+	'gist'
+	# 'ghi' // FIXME - Needs gem pygments.rb (and we haven't loaded the new Ruby yet)
+	'hub'
+
+	'docker'
+	'docker-machine'
+	'docker-compose'
+	'docker-swarm'
+	'docker-cloud'
+	'vagrant-completion'
+	'maven --ignore-dependencies'
+	'maven-completion'
+	'sonar-completion'
+
+	'bitlbee'
+	'cowsay'
+	'epic5'
+	'figlet'
+	'gifify'
+	'irssi'
+	'libvo-aacenc'
+	'weechat --with-aspell --with-curl --with-ruby'
+	'youtube-dl'
+)
+
+echo -e "\n==> Installing Homebrew packages..."
+for package in "${brew_packages[@]}"; do
+	brew install $package &> /dev/null
+done
+
+echo -e "\n==> Configuring Bash..."
+sudo -S sh -c 'echo "/usr/local/bin/bash" >> /etc/shells' <<< "${PASS}" 2> /dev/null
+sudo -S chsh -s '/usr/local/bin/bash' "${USER}" <<< "${PASS}" 2> /dev/null
+
+echo -e "\n==> Configuring Pow..."
 mkdir -p "${HOME}/Library/Application Support/Pow/Hosts"
 ln -s "${HOME}/Library/Application Support/Pow/Hosts" "${HOME}/.pow"
-sudo -S -v <<< "${PASSWORD}" 2> /dev/null
 sudo pow --install-system &> /dev/null
 sudo launchctl load -w /Library/LaunchDaemons/cx.pow.firewall.plist
 pow --install-local &> /dev/null
 launchctl load -w "${HOME}/Library/LaunchAgents/cx.pow.powd.plist"
-brew install psqlodbc
-brew install pstree
-brew install screen
-brew install shellcheck
-# brew install sourcekitten # FIXME - Needs Xcode
-brew install ssh-copy-id
-# brew install swiftlint # FIXME - Needs Xcode
-brew install tidy-html5
-brew install tomcat --ignore-dependencies
-brew install tree
-brew install unrar
-brew install vim --with-override-system-vi --with-python3
-brew install watchman
-brew install wget
-brew install wiki
-brew install yarn
-brew install z
 
-brew install git --with-brewed-curl --with-brewed-openssl
-brew install git-flow-avh
-brew install gist
-# brew install ghi // FIXME - Needs to install gem pygments.rb prior to it (and we haven't loaded the new Ruby yet)
-brew install hub
+brew update &> /dev/null
 
-brew install docker
-brew install docker-machine
-brew install docker-compose
-brew install docker-swarm
-brew install docker-cloud
-brew install vagrant-completion
-brew install maven --ignore-dependencies
-brew install maven-completion
-brew install sonar-completion
+brew upgrade &> /dev/null
 
-brew install cowsay
-brew install epic5
-brew install gifify
-brew install irssi
-brew install libvo-aacenc
-brew install mpv --with-bundle --with-libdvdnav --with-libdvdread
-brew linkapps mpv
-
-brew update
-
-brew upgrade
-
-brew cleanup --force
+brew cleanup --force &> /dev/null

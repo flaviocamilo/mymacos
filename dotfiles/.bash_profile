@@ -14,4 +14,4 @@ export MYOSX_HOME=
 
 . "${MYOSX_HOME}/dotfiles/shell/options.sh"
 
-[ ! -z "${MYPRIVATEOSX_HOME}" ] && . "${MYOSX_HOME}/dotfiles/shell/private.sh"
+. "${MYOSX_HOME}/dotfiles/shell/private.sh"

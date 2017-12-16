@@ -1,34 +1,62 @@
 #!/usr/bin/env bash
 
-echo "==> Installing Atom packages..."
+atom_packages=(
+	'atom-beautify'
+	'atom-clock'
+	'atom-jest-snippets'
+	'atom-runner'
+	'autoclose-html'
+	'autocomplete-asciidoc'
+	'autocomplete-lodash'
+	'autocomplete-modules'
+	'autocomplete-sql'
+	'autocomplete-xml'
+	'browser-plus'
+	'ctrl-dir-scroll'
+	'docblockr'
+	'editorconfig'
+	'emmet'
+	'emmet-jsx-css-modules'
+	'file-icons'
+	# 'git-plus'
+	'goto-definition'
+	'highlight-selected'
+	'language-asciidoc'
+	'language-babel'
+	'language-docker'
+	# 'language-swift'
+	'linter'
+	'linter-eslint'
+	'linter-ruby'
+	'linter-write-good'
+	'local-history'
+	'lodash-snippets'
+	'maximize-panes'
+	'minimap'
+	'minimap-bookmarks'
+	'minimap-cursorline'
+	'minimap-find-and-replace'
+	'minimap-git-diff'
+	'minimap-highlight-selected'
+	'minimap-linter'
+	'nuclide'
+	'one-vibrancy'
+	'pigments'
+	# 'platformio-ide-terminal'
+	'prettier-atom'
+	# 'project-manager'
+	'project-plus'
+	'ruby-block'
+	'ruby-test'
+	'ruby-test-switcher'
+	'simple-drag-drop-text'
+	'sort-lines'
+	'source-preview'
+	'tabs-to-spaces'
+	# 'tool-bar'
+)
 
-sudo -S -v <<< "${PASSWORD}" 2> /dev/null
-
-apm i nuclide
-
-apm i file-icons
-apm i highlight-selected
-apm i maximize-panes
-apm i minimap
-apm i minimap-bookmarks
-apm i minimap-cursorline
-apm i minimap-find-and-replace
-apm i minimap-git-diff
-apm i minimap-highlight-selected
-apm i minimap-linter
-apm i tool-bar
-
-apm i language-babel
-apm i language-docker
-apm i language-swift
-apm i linter
-apm i linter-eslint
-
-apm i atom-runner
-apm i ctrl-dir-scroll
-apm i editorconfig
-apm i emmet
-apm i git-plus
-apm i merge-conflicts
-apm i sort-lines
-apm i tabs-to-spaces
+echo -e "\n==> Installing Atom packages..."
+for package in ${atom_packages[@]}; do
+	apm i $package &> /dev/null
+done
